@@ -28,7 +28,7 @@ public class ProjectileEngineManager : MonoBehaviour
         {
             case ProjectileType.FireSeed:
                
-                GameObject.Instantiate(fireExplosion,collisionHit,rotation);
+                GameObject.Instantiate(fireExplosion, hitPosition, rotation);
                 break;
             case ProjectileType.PoisonSeed:
                 Debug.Log("Poison");
