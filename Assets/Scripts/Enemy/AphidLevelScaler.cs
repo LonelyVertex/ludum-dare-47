@@ -16,7 +16,7 @@ public class AphidLevelScaler : EnemyLevelScaler
 
     public override void SetLevel(int level)
     {
-        health.maxHealth = ScaleHealth(level);
+        health.SetMaxHealth(ScaleHealth(level));
         attack.timer = ScaleAttackTimer(level);
     }
 

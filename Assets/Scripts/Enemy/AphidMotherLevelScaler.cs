@@ -9,7 +9,7 @@ public class AphidMotherLevelScaler : EnemyLevelScaler
     private const int BaseHealth = 150;
     private const float BaseAttackTimer = 2;
     private const float BaseAphidSpawnCooldown = 5;
-    
+
     private int _level;
 
     public int Level => _level;
@@ -23,11 +23,11 @@ public class AphidMotherLevelScaler : EnemyLevelScaler
     {
         _level = level;
 
-        health.maxHealth = ScaleHealth(level);
+        health.SetMaxHealth(ScaleHealth(level));
         attack.timer = ScaleAttackTimer(level);
         aphidMother.spawnCooldown = ScaleAphidSpawnCooldown(level);
     }
-    
+
     private static int ScaleHealth(int level)
     {
         return Mathf.RoundToInt(BaseHealth + Mathf.Log(10 * (float) level));

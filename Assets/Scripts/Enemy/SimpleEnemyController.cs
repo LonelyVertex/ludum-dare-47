@@ -39,7 +39,7 @@ public class SimpleEnemyController : MonoBehaviour
             navigation.SetTarget(wayPoints.NextWayPoint());
         }
 
-        if (vision.CanSeePlayer)
+        if (vision.CanSeePlayer || !health.HasFullHealth)
         {
             ChasePlayer();
         }

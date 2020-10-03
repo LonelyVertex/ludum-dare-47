@@ -2,26 +2,31 @@
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
 
     public event System.Action healthDepletedEvent;
 
-    private int currentHealth;
+    private int _currentHealth;
+    private int _maxHealth;
+    
+    public bool HasFullHealth => _currentHealth == _maxHealth;
+
+    public void SetMaxHealth(int maxHealth)
+    {
+        _currentHealth = _maxHealth = maxHealth;
+    }
 
     public void DealDamage(int amount)
     {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + " got damage of " + amount + ". Ouch that hurt! I have " + currentHealth + " hitpoints left");
+        _currentHealth -= amount;
 
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
-            Debug.Log(gameObject.name + " should die now. :'(");
             healthDepletedEvent?.Invoke();
         }
     }
 
     private void Awake()
     {
-        currentHealth = maxHealth;
+        _currentHealth = _maxHealth;
     }
 }

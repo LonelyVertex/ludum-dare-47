@@ -19,6 +19,6 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer(PlayerFlowerSO playerFlowerSo)
     {
-        health.maxHealth = playerFlowerSo.maxHealth;
+        health.SetMaxHealth(playerFlowerSo.maxHealth);
     }
 }
