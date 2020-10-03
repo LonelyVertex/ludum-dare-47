@@ -5970,6 +5970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a3e2787843458e9744f34142f9ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ammunitionStoragePrefab: {fileID: 9164033215419850773, guid: ba3840aec42f8234f95718b394d9723f,
+    type: 3}
 --- !u!114 &1485436530
 MonoBehaviour:
   m_ObjectHideFlags: 0
