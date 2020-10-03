@@ -4,7 +4,7 @@ using Zenject;
 
 public class ProjectileEngineManager : MonoBehaviour
 {
-    public float cislo;
+
     public GameObject fireExplosion;
     [Inject] private readonly ProjectileEngine.Pool _projectileEnginePool = default;
     [Inject] private readonly PickableSeedManager _pickableSeedManager = default;
@@ -24,8 +24,8 @@ public class ProjectileEngineManager : MonoBehaviour
         switch (projectileEngine.projectileType)
         {
             case ProjectileType.FireSeed:
-                Debug.Log("Fire");
-                //GameObject.Instantiate(fireExplosion,collisionHit,rotation);
+               
+                GameObject.Instantiate(fireExplosion,collisionHit,rotation);
                 break;
             case ProjectileType.PoisonSeed:
                 Debug.Log("Poison");

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cislo: 0
-  fireExplosion: {fileID: 8674899986965512953, guid: 6fa00c97e49fef54babf953cc1afc679,
+  fireExplosion: {fileID: 9117357937317817632, guid: 6fa00c97e49fef54babf953cc1afc679,
     type: 3}
