@@ -13,13 +13,22 @@ public class EnemyVision : MonoBehaviour
     {
         get
         {
+            if (_player == null) return false;
+
             var distance = Vector2.Distance(transform.position, _player.transform.position);
             var inViewRange = distance <= viewDistance;
-            
-            var angle = Vector2.Angle(_player.transform.position - transform.position, transform.right);
-            var inViewAngle = angle <= (fov / 2);
 
-            return inViewRange && inViewAngle;
+            var angle = Vector2.Angle(_player.transform.position - transform.position, transform.right);
+            var inViewAngle = angle <= fov / 2;
+
+            if (!inViewRange || !inViewAngle) return false;
+
+            var hit = Physics2D.Raycast(transform.position, _player.transform.position - transform.position,
+                viewDistance);
+            
+            Debug.Log(hit.transform.tag);
+
+            return hit.transform.CompareTag("Player");
         }
     }
 

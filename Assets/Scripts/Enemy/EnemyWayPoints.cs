@@ -1,42 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyWayPoints : MonoBehaviour
 {
-    public enum Mode
-    {
-        Loop = 0,
-        PingPong = 1,
-    }
-
-    public List<Transform> wayPoints;
+    public WayPointCollection wayPointCollection;
     public float reachThreshold;
-    public Mode mode;
 
     private int _currentWayPoint = 0;
     private int _countDirection = 1;
 
-    public Transform CurrentWayPoint => wayPoints[_currentWayPoint];
+    public Transform CurrentWayPoint => wayPointCollection.wayPoints[_currentWayPoint];
 
     public bool HasReachedWayPoint =>
-        Vector3.Distance(transform.position, wayPoints[_currentWayPoint].position) <= reachThreshold;
+        Vector3.Distance(transform.position, wayPointCollection.wayPoints[_currentWayPoint].position) <= reachThreshold;
 
     public Transform NextWayPoint()
     {
-        if (wayPoints.Count == 0) return null;
+        if (wayPointCollection.wayPoints.Count == 0) return null;
 
         IncrementCurrentWayPoint();
-        return wayPoints[_currentWayPoint];
+        return wayPointCollection.wayPoints[_currentWayPoint];
     }
 
     private void IncrementCurrentWayPoint()
     {
-        if (mode == Mode.Loop)
+        if (wayPointCollection.mode == WayPointCollection.Mode.Loop)
         {
             IncrementCurrentWayPointLoop();
         }
-        else if (mode == Mode.PingPong)
+        else if (wayPointCollection.mode == WayPointCollection.Mode.PingPong)
         {
             IncrementCurrentWayPointPingPong();
         }
@@ -44,12 +35,12 @@ public class EnemyWayPoints : MonoBehaviour
 
     private void IncrementCurrentWayPointLoop()
     {
-        _currentWayPoint = (_currentWayPoint + 1) % wayPoints.Count;
+        _currentWayPoint = (_currentWayPoint + 1) % wayPointCollection.wayPoints.Count;
     }
 
     private void IncrementCurrentWayPointPingPong()
     {
-        if (_currentWayPoint + _countDirection >= wayPoints.Count)
+        if (_currentWayPoint + _countDirection >= wayPointCollection.wayPoints.Count)
         {
             _countDirection = -1;
         }

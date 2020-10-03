@@ -20,6 +20,7 @@ public class EnemyNavigation : MonoBehaviour
 
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
+        
     }
 
     private void Update()
@@ -27,15 +28,16 @@ public class EnemyNavigation : MonoBehaviour
         if (_target != null)
         {
             _navMeshAgent.SetDestination(_target.position);
+            RotateTowardsDestination();
         }
-        
-        RotateTowardsDestination();
     }
 
     private void RotateTowardsDestination()
     {
-        var vectorToTarget = _navMeshAgent.destination - transform.position;
-        var angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+//        var vectorToTarget = _navMeshAgent.destination - transform.position;
+//        var angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        var velocity = _navMeshAgent.velocity;
+        var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
