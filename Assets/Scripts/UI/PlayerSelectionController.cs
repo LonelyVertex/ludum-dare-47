@@ -8,6 +8,8 @@ public class PlayerSelectionController : MonoBehaviour
     
     [SerializeField] private Transform _container = default;
     [SerializeField] private PlayerFlowerButton _playerFlowerButtonPrefab = default;
+
+    public event System.Action switchViewEvent;
     
     void Start()
     {
@@ -17,28 +19,12 @@ public class PlayerSelectionController : MonoBehaviour
             playerFlowerButton.SetData(playerFlower);
             playerFlowerButton.playerFlowerSelectedEvent += HandlePlayerFlowerSelected;
         }
-
-        Show();
     }
 
     private void HandlePlayerFlowerSelected(PlayerFlowerType type)
     {
         _playerSpawner.SpawnPlayer(type);
-
-        Hide();
-    }
-
-    public void Show()
-    {
-        Time.timeScale = 0;
         
-        gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
-        Time.timeScale = 1;
-        
-        gameObject.SetActive(false);
+        switchViewEvent?.Invoke();
     }
 }

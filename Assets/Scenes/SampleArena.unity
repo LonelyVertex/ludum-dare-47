@@ -252,7 +252,6 @@ MonoBehaviour:
         wayPointCollection: {fileID: 625550258}
         enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
-        baseCount: 3
         spawnDelay: 1
   wave2:
     drawGizmos: 1
@@ -263,7 +262,6 @@ MonoBehaviour:
         wayPointCollection: {fileID: 2034680766}
         enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
-        baseCount: 3
         spawnDelay: 1
   bossWave:
     drawGizmos: 1
@@ -274,7 +272,6 @@ MonoBehaviour:
         wayPointCollection: {fileID: 733250265}
         enemyPrefab: {fileID: 4366638580511262666, guid: 1448d927e1fbc409b837e4f802d9ceb8,
           type: 3}
-        baseCount: 1
         spawnDelay: 0
 --- !u!4 &139711774
 Transform:
@@ -2036,6 +2033,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 435449399203446779, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435449399203446779, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435449399203446779, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2035770026152327027, guid: 0dac71700e6789b46a8a842057730059,
         type: 3}
       propertyPath: m_Name
@@ -2144,6 +2156,21 @@ PrefabInstance:
     - target: {fileID: 2035770026152327029, guid: 0dac71700e6789b46a8a842057730059,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124655294976696924, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 439577741}
+    - target: {fileID: 8555090704442304265, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555090704442304265, guid: 0dac71700e6789b46a8a842057730059,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
