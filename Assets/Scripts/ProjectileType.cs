@@ -6,5 +6,6 @@ public enum ProjectileType
 {
     FireSeed,
     PoisonSeed,
-    ElectricSeed
+    ElectricSeed,
+    Piercing
 }

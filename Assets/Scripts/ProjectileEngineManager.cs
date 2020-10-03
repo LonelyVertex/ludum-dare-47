@@ -1,8 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 public class ProjectileEngineManager : MonoBehaviour
+
 {
     public float cislo;
     public GameObject fireExplosion;
@@ -17,10 +17,13 @@ public class ProjectileEngineManager : MonoBehaviour
         seed.killProjectile += HandleKillProjectile;
     }
 
-    private void HandleKillProjectile(ProjectileEngine projectileEngine, Vector3 collisionHit, Quaternion rotation)
+    private void HandleKillProjectile(ProjectileEngine projectileEngine, GameObject hitGameObject, Vector3 hitPosition, Quaternion rotation, Vector3 hitNormal)
     {
         projectileEngine.killProjectile -= HandleKillProjectile;
 
+        _projectileEnginePool.Despawn(projectileEngine);
+        
+        // Spawn different effect
         switch (projectileEngine.projectileType)
         {
             case ProjectileType.FireSeed:
@@ -33,10 +36,12 @@ public class ProjectileEngineManager : MonoBehaviour
             case ProjectileType.ElectricSeed:
                 Debug.Log("Electric");
                 break;
+            case ProjectileType.Piercing:
+                Debug.Log("Piercing");
+                break;
         }
         
-        _pickableSeedManager.AddPickableSeed(collisionHit, rotation);
-        
-        _projectileEnginePool.Despawn(projectileEngine);
+        // Spawn ammunition to collect
+        _pickableSeedManager.AddPickableSeed(hitPosition, rotation, hitNormal);
     }
 }

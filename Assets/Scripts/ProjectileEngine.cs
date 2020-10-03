@@ -4,14 +4,11 @@ using Zenject;
 
 public class ProjectileEngine : MonoBehaviour
 {
-    private const string kObstacleTag = "Obstacle";
-
     public Rigidbody2D _rigidbody2D;
     public float projectileSpeed;
     public float lifespan;
-    public float contactPointOffset;
     public ProjectileType projectileType;
-    public event Action<ProjectileEngine, Vector3, Quaternion> killProjectile;
+    public event Action<ProjectileEngine, GameObject, Vector3, Quaternion, Vector3> killProjectile;
 
     private float _currentLifeSpan;
     private ProjectileType _projectileType;
@@ -24,13 +21,13 @@ public class ProjectileEngine : MonoBehaviour
         }
     }
 
-    private void Reinitialize(Vector3 position, Quaternion rotation, ProjectileType projectileType)
+    private void Reinitialize(Vector3 position, Quaternion rotation, ProjectileType type)
     {
         _rigidbody2D.position = position;
         _rigidbody2D.rotation = rotation.eulerAngles.z;
 
         _currentLifeSpan = lifespan;
-        this.projectileType = projectileType;
+        projectileType = type;
     }
     
     private void Update()
@@ -38,7 +35,7 @@ public class ProjectileEngine : MonoBehaviour
         _currentLifeSpan -= Time.deltaTime;
         if (_currentLifeSpan <= 0)
         {
-            killProjectile?.Invoke(this, Vector3.zero, Quaternion.identity);
+            killProjectile?.Invoke(this, null, Vector3.zero, Quaternion.identity, Vector3.zero);
         }
     }
 
@@ -49,10 +46,8 @@ public class ProjectileEngine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag(kObstacleTag))
-        {
-            var contact = other.GetContact(0);
-            killProjectile?.Invoke(this, contact.point + contact.normal * contactPointOffset, transform.rotation);
-        }
+        var contact = other.GetContact(0);
+     
+        killProjectile?.Invoke(this, other.gameObject, contact.point, transform.rotation, contact.normal);
     }
 }
