@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 1569032526}
   - component: {fileID: 1569032527}
   - component: {fileID: 1213982535516451508}
+  - component: {fileID: 76864519}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee4ace78d4124c68bd437466bf36307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wayPoints: []
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   reachThreshold: 1
   mode: 0
 --- !u!114 &1213982535516451508
@@ -163,3 +167,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4ec895c07064ed88ca4eb0d40ef841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &76864519
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992916451172373536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.035211205, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4647888

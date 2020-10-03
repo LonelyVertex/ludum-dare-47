@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1321436903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321436904}
+  m_Layer: 0
+  m_Name: BulletStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321436904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321436903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67, y: -0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7740528653826372327}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7740528653140053088
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +127,7 @@ GameObject:
   - component: {fileID: 7740528653826372329}
   - component: {fileID: 7740528653826372322}
   - component: {fileID: 7740528653826372325}
+  - component: {fileID: 662484932}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -117,6 +148,7 @@ Transform:
   m_Children:
   - {fileID: 7740528654772842283}
   - {fileID: 7740528653140053089}
+  - {fileID: 1321436904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,6 +256,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a66640dffc5e3f45a555645c3bd6878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &662484932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740528653826372328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ef82d81ffd2b44884a89ee5fb6e6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletStart: {fileID: 1321436904}
+  regularSeed: {fileID: 876079998508516809, guid: 4bd9ab2c639c5914eb7f5f9eb0507e6f,
+    type: 3}
 --- !u!1 &7740528654772842282
 GameObject:
   m_ObjectHideFlags: 0
