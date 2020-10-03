@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class TimeController : MonoBehaviour
 {
     public AnimationCurve curve;
 
-    // TODO - For debug only
-    [Range(0, 5)]
-    public int ammo;
-    public int maxAmmo = 5;
+    [Inject]
+    private AmmunitionStorage _ammunitionStorage;
 
-    private int Ammo => ammo;
-    private int MaxAmmo => maxAmmo;
+    private int Ammo => _ammunitionStorage.currentAmmunitionCount;
+    private int MaxAmmo => _ammunitionStorage.maxAmmunitionCount;
 
-    void Update()
+    private void Update()
     {
-        if (maxAmmo > 0)
+        if (MaxAmmo > 0)
         {
             Time.timeScale = curve.Evaluate(time: (float) Ammo / MaxAmmo);
         }

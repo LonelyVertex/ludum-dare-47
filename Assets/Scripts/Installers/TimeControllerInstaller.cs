@@ -7,6 +7,6 @@ public class TimeControllerInstaller : MonoInstaller
     
     public override void InstallBindings()
     {
-        Container.Bind<TimeController>().FromComponentInNewPrefab(timeControllerPrefab).AsSingle();
+        Container.Bind<TimeController>().FromComponentInNewPrefab(timeControllerPrefab).AsSingle().NonLazy();
     }
 }
