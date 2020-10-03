@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 7740528653826372327}
   - component: {fileID: 7740528653826372326}
   - component: {fileID: 7740528653826372324}
+  - component: {fileID: 472623078942930465}
   - component: {fileID: 7740528653826372329}
   - component: {fileID: 7740528653826372322}
   - component: {fileID: 7740528653826372325}
@@ -166,6 +167,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &472623078942930465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740528653826372328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2738ad4527cda410eaa288bf55920b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7740528653826372329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: af2bde4a0cdeb474d88d9dd63db0d312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

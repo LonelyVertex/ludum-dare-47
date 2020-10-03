@@ -4,10 +4,16 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyNavigation : MonoBehaviour
 {
-    public Transform target;
-
+    public float rotationSpeed;
+    
     private NavMeshAgent _navMeshAgent;
-
+    private Transform _target;
+    
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+    
     private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -18,9 +24,9 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (_target != null)
         {
-            _navMeshAgent.SetDestination(target.position);
+            _navMeshAgent.SetDestination(_target.position);
         }
         
         RotateTowardsDestination();
@@ -30,6 +36,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         var vectorToTarget = _navMeshAgent.destination - transform.position;
         var angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 }
