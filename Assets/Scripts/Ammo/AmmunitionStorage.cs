@@ -2,6 +2,8 @@
 
 public class AmmunitionStorage : MonoBehaviour
 {
+    public ProjectileType projectileType;
+
     [SerializeField] private int _maxAmmunition = default;
     [SerializeField] private int _currentAmmoCount = default;
 

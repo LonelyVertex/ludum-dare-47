@@ -10,25 +10,27 @@ public class ProjectileEngine : MonoBehaviour
     public float projectileSpeed;
     public float lifespan;
     public float contactPointOffset;
-    
+    public ProjectileType projectileType;
     public event Action<ProjectileEngine, Vector3, Quaternion> killProjectile;
 
     private float _currentLifeSpan;
+    private ProjectileType _projectileType;
     
-    public class Pool : MonoMemoryPool<Vector3, Quaternion, ProjectileEngine>
+    public class Pool : MonoMemoryPool<Vector3, Quaternion, ProjectileType, ProjectileEngine>
     {
-        protected override void Reinitialize(Vector3 position, Quaternion rotation, ProjectileEngine projectileEngine)
+        protected override void Reinitialize(Vector3 position, Quaternion rotation, ProjectileType projectileType, ProjectileEngine projectileEngine)
         {
-            projectileEngine.Reinitialize(position, rotation);
+            projectileEngine.Reinitialize(position, rotation, projectileType);
         }
     }
 
-    private void Reinitialize(Vector3 position, Quaternion rotation)
+    private void Reinitialize(Vector3 position, Quaternion rotation, ProjectileType projectileType)
     {
         _rigidbody2D.position = position;
         _rigidbody2D.rotation = rotation.eulerAngles.z;
 
         _currentLifeSpan = lifespan;
+        this.projectileType = projectileType;
     }
     
     private void Update()
