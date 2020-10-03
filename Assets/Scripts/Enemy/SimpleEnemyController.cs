@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 
@@ -11,6 +10,8 @@ public class SimpleEnemyController : MonoBehaviour
     public EnemyVision vision;
     public EnemyWayPoints wayPoints;
     public Health health;
+
+    public float chaseStoppingDistance;
 
     protected bool ChasingPlayer;
 
@@ -48,6 +49,11 @@ public class SimpleEnemyController : MonoBehaviour
     {
         navigation.SetTarget(Player.transform);
         ChasingPlayer = true;
+
+        if (chaseStoppingDistance > 0)
+        {
+            navigation.navMeshAgent.stoppingDistance = chaseStoppingDistance;
+        }
     }
 
     private void OnHealthDepleted()

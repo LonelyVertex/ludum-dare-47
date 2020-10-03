@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce32f422897eb4bee8c6c7e3a84c2d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 2992916451172373538}
   rotationSpeed: 5
 --- !u!114 &1569032526
 MonoBehaviour:
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f416aa4cb4df466193b7084ca4969f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 120
+  fov: 170
   viewDistance: 5
 --- !u!114 &1569032527
 MonoBehaviour:
@@ -251,3 +252,4 @@ MonoBehaviour:
   vision: {fileID: 1569032526}
   wayPoints: {fileID: 1569032527}
   health: {fileID: 5316707620932062446}
+  chaseStoppingDistance: 0
