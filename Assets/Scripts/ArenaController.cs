@@ -22,7 +22,6 @@ public class ArenaController : MonoBehaviour
         public Transform spawnPoint;
         public WayPointCollection wayPointCollection;
         public GameObject enemyPrefab;
-        public int baseCount;
         public int spawnDelay;
     }
 
@@ -99,8 +98,9 @@ public class ArenaController : MonoBehaviour
     IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint)
     {
         var spawnDelay = new WaitForSeconds(spawnPoint.spawnDelay);
+        var spawnCount = spawnPoint.enemyPrefab.GetComponent<EnemyLevelScaler>().SpawnCount(level);
         
-        for (var i = 0; i < spawnPoint.baseCount; i++)
+        for (var i = 0; i < spawnCount; i++)
         {
             SpawnEnemy(spawnPoint);
             yield return spawnDelay;

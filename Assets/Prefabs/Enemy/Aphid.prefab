@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00a076312b8b6b4b9539c78022b2f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 50
 --- !u!114 &3855185705561143385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   vision: {fileID: 1569032526}
   range: 1
   timer: 2
-  damage: 1
+  damage: 10
 --- !u!114 &-8265830786349434223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c682e41e3937422dbb3b38f9eec46f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 5316707620932062446}
+  attack: {fileID: 3855185705561143385}
 --- !u!114 &1213982535516451508
 MonoBehaviour:
   m_ObjectHideFlags: 0

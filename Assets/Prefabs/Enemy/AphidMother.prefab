@@ -233,6 +233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db4dc5c3febd4d089636c10278f359f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 5056272865321194676}
+  attack: {fileID: -1402473666838515770}
+  aphidMother: {fileID: -8030026246466543023}
 --- !u!114 &-8030026246466543023
 MonoBehaviour:
   m_ObjectHideFlags: 0
