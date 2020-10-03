@@ -7,9 +7,13 @@ public class PlayerInstaller : MonoInstaller
 
      [Space]
      [SerializeField] private GameObject _projectileEnginePrefab = default;
-
      [SerializeField] private GameObject _pickableSeedPrefab = default;
-     public GameObject projectileEngineManager=default;
+     public GameObject projectileEngineManager = default;
+
+     [Space]
+     [SerializeField] private GameObject _playerSpawnerPrefab = default;
+     
+    
      public override void InstallBindings()
      {
           Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
@@ -20,5 +24,7 @@ public class PlayerInstaller : MonoInstaller
 
           Container.Bind<PickableSeedManager>().AsSingle();
           Container.BindMemoryPool<PickableSeed, PickableSeed.Pool>().FromComponentInNewPrefab(_pickableSeedPrefab).AsCached();
+
+          Container.Bind<PlayerSpawner>().FromComponentInNewPrefab(_playerSpawnerPrefab).AsSingle();
      }
 }

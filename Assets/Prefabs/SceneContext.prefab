@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3587623401218864985}
   - component: {fileID: 3587623401218864986}
   - component: {fileID: 3587623401218864991}
+  - component: {fileID: 2541325119955993758}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 3587623401218864986}
+  - {fileID: 2541325119955993758}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -85,6 +87,8 @@ MonoBehaviour:
     type: 3}
   projectileEngineManager: {fileID: 7656267557789951926, guid: bf4498614c6bff841973a5f8036ed3ea,
     type: 3}
+  _playerSpawnerPrefab: {fileID: 8071662813800822333, guid: 595eb99a30052e546a2f6aa4c52731f0,
+    type: 3}
 --- !u!114 &3587623401218864991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,4 +102,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeControllerPrefab: {fileID: 4604264030407722101, guid: 7effb43f9085847f08dfcd8e493df618,
+    type: 3}
+--- !u!114 &2541325119955993758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587623401218864987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05081378fb97ae46b7241438906e8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerFlowerDataModel: {fileID: 6612187192413945694, guid: f107d8a6d783c2544ba38414f2869e3a,
     type: 3}

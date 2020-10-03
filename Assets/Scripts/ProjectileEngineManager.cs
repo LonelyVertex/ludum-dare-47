@@ -2,17 +2,15 @@
 using Zenject;
 
 public class ProjectileEngineManager : MonoBehaviour
-
 {
-
-    public GameObject fireExplosion;
     [Inject] private readonly ProjectileEngine.Pool _projectileEnginePool = default;
     [Inject] private readonly PickableSeedManager _pickableSeedManager = default;
     
+    public GameObject fireExplosion;
  
-    public void SpawnSeed(Vector3 position, Quaternion rotation, ProjectileType projectileType)
+    public void SpawnSeed(Vector3 position, Quaternion rotation, PlayerFlowerType playerFlowerType)
     {
-        var seed = _projectileEnginePool.Spawn(position, rotation, projectileType);
+        var seed = _projectileEnginePool.Spawn(position, rotation, playerFlowerType);
 
         seed.killProjectile += HandleKillProjectile;
     }
@@ -24,19 +22,19 @@ public class ProjectileEngineManager : MonoBehaviour
         _projectileEnginePool.Despawn(projectileEngine);
         
         // Spawn different effect
-        switch (projectileEngine.projectileType)
+        switch (projectileEngine.playerFlowerType)
         {
-            case ProjectileType.FireSeed:
+            case PlayerFlowerType.Fire:
                
                 GameObject.Instantiate(fireExplosion, hitPosition, rotation);
                 break;
-            case ProjectileType.PoisonSeed:
+            case PlayerFlowerType.Poison:
                 Debug.Log("Poison");
                 break;
-            case ProjectileType.ElectricSeed:
+            case PlayerFlowerType.Electric:
                 Debug.Log("Electric");
                 break;
-            case ProjectileType.Piercing:
+            case PlayerFlowerType.Piercing:
                 Debug.Log("Piercing");
                 break;
         }

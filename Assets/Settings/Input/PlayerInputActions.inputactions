@@ -134,7 +134,7 @@
             "id": "440d3a80-d2a0-40bc-964d-8366d18f32fc",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "LeftButton",
                     "type": "Button",
                     "id": "99dfe470-6916-43ac-ad37-ccd20066a610",
                     "expectedControlType": "Button",
@@ -146,11 +146,11 @@
                 {
                     "name": "",
                     "id": "be1076a2-655a-40a8-9c54-5bf594af91ef",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Default",
-                    "action": "New action",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

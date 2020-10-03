@@ -147,7 +147,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""id"": ""440d3a80-d2a0-40bc-964d-8366d18f32fc"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""LeftButton"",
                     ""type"": ""Button"",
                     ""id"": ""99dfe470-6916-43ac-ad37-ccd20066a610"",
                     ""expectedControlType"": ""Button"",
@@ -159,11 +159,11 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be1076a2-655a-40a8-9c54-5bf594af91ef"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Default"",
-                    ""action"": ""New action"",
+                    ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -202,7 +202,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        m_UI_LeftButton = m_UI.FindAction("LeftButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -309,12 +309,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Newaction;
+    private readonly InputAction m_UI_LeftButton;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
         public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_UI_Newaction;
+        public InputAction @LeftButton => m_Wrapper.m_UI_LeftButton;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -324,16 +324,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
+                @LeftButton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftButton;
+                @LeftButton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftButton;
+                @LeftButton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeftButton;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @LeftButton.started += instance.OnLeftButton;
+                @LeftButton.performed += instance.OnLeftButton;
+                @LeftButton.canceled += instance.OnLeftButton;
             }
         }
     }
@@ -356,6 +356,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     }
     public interface IUIActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnLeftButton(InputAction.CallbackContext context);
     }
 }
