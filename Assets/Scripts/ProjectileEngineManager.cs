@@ -2,11 +2,14 @@
 using UnityEngine;
 using Zenject;
 
-public class ProjectileEngineManager
+public class ProjectileEngineManager : MonoBehaviour
 {
+    public float cislo;
+    public GameObject fireExplosion;
     [Inject] private readonly ProjectileEngine.Pool _projectileEnginePool = default;
     [Inject] private readonly PickableSeedManager _pickableSeedManager = default;
     
+ 
     public void SpawnSeed(Vector3 position, Quaternion rotation, ProjectileType projectileType)
     {
         var seed = _projectileEnginePool.Spawn(position, rotation, projectileType);
@@ -22,6 +25,7 @@ public class ProjectileEngineManager
         {
             case ProjectileType.FireSeed:
                 Debug.Log("Fire");
+                //GameObject.Instantiate(fireExplosion,collisionHit,rotation);
                 break;
             case ProjectileType.PoisonSeed:
                 Debug.Log("Poison");

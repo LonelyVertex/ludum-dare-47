@@ -83,6 +83,8 @@ MonoBehaviour:
     type: 3}
   _pickableSeedPrefab: {fileID: 8791766246810896156, guid: 3f40508bb892dc14ab6c280b2be958d9,
     type: 3}
+  projectileEngineManager: {fileID: 7656267557789951926, guid: bf4498614c6bff841973a5f8036ed3ea,
+    type: 3}
 --- !u!114 &3587623401218864991
 MonoBehaviour:
   m_ObjectHideFlags: 0
