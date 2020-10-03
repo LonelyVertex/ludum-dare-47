@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "00723fbc-5a40-4df7-850c-fbc066e8ff6b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -23,8 +23,16 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "11b2b2fe-8492-40b5-9700-ca70dd4c2368",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Dash",
+                    "type": "PassThrough",
+                    "id": "0175b4fd-edab-455f-8d7d-14f64b793db0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -67,7 +75,7 @@
                 {
                     "name": "left",
                     "id": "3e853e67-030d-4098-a807-3284784ae87d",
-                    "path": "<SwitchProControllerHID>/buttonEast",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Default",
@@ -88,22 +96,11 @@
                 },
                 {
                     "name": "",
-                    "id": "e9789745-87b2-4f1f-be95-078e85027784",
-                    "path": "<Pointer>/position",
+                    "id": "5ec44ac0-cd57-46c7-9934-7817d9fde2ff",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Default",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4109436d-3be2-4cc5-ae3f-8e4f8a963b89",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Default",
+                    "groups": "",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -116,6 +113,17 @@
                     "processors": "",
                     "groups": "Default",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1bdee9fa-fb61-4c59-b08e-c031f754ea22",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
