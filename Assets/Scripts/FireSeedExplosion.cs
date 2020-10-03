@@ -46,11 +46,11 @@ public class FireSeedExplosion : MonoBehaviour
         transform.localScale = Vector3.one * Mathf.Lerp(originalScale, maxsize, scaleT);
         scaleT += growthSpeed * Time.deltaTime;
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" & _damageTickCounter <= 0)
+    
+        if (other.tag == "Enemy" )
         {
-            _damageTickCounter = damageTickRate;
             other.GetComponent<Health>().DealDamage(damagePerTick);
         }
     }
