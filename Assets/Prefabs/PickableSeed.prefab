@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8791766246810896155}
   - component: {fileID: 8791766246810896154}
   - component: {fileID: 1824479202702155528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PickableSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8791766246937042666}
   - component: {fileID: 8791766246937042665}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
