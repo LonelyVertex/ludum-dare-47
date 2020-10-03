@@ -28,6 +28,10 @@ public class FireSeedExplosion : MonoBehaviour
     private void Update()
     {
         FadeOut();
+        if (SR.color.a <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void FadeOut()
@@ -43,7 +47,6 @@ public class FireSeedExplosion : MonoBehaviour
         scaleT += growthSpeed * Time.deltaTime;
     }
     private void OnTriggerStay2D(Collider2D other)
-
     {
         if (other.tag == "Enemy" & _damageTickCounter <= 0)
         {
