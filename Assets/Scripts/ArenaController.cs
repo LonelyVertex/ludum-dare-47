@@ -79,7 +79,6 @@ public class ArenaController : MonoBehaviour
 
     void Start()
     {
-        
         StartCoroutine(SpawnWave(wave1));
         StartCoroutine(SpawnWave(wave2));
         StartCoroutine(SpawnWave(bossWave));
@@ -120,5 +119,7 @@ public class ArenaController : MonoBehaviour
 
         var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, rotation, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
+        
+        // Set Health here
     }
 }

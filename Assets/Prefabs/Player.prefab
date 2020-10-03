@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 7740528653826372322}
   - component: {fileID: 7740528653826372325}
   - component: {fileID: 662484932}
+  - component: {fileID: 1026583222495334376}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -270,6 +271,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootDelay: 1
   _bulletStart: {fileID: 1321436904}
+--- !u!114 &1026583222495334376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740528653826372328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00a076312b8b6b4b9539c78022b2f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &7740528654772842282
 GameObject:
   m_ObjectHideFlags: 0

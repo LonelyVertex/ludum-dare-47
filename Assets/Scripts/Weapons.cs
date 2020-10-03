@@ -5,7 +5,7 @@ public class Weapons : MonoBehaviour
 {
     [Inject] private readonly PlayerInputState _playerInputState = default;
     [Inject] private readonly AmmunitionStorage _ammunitionStorage = default;
-    [Inject] private readonly ProjectileEngineManager _projectileEngineManager = default;
+    [Inject] private readonly ProjectileEngineManager _playerProjectileEngineManager = default;
 
     public float _shootDelay;
     public Transform _bulletStart;
@@ -30,6 +30,6 @@ public class Weapons : MonoBehaviour
         }
 
         _lastFired = Time.time;
-        _projectileEngineManager.SpawnSeed(_bulletStart.position, transform.rotation, _ammunitionStorage.projectileType);
+        _playerProjectileEngineManager.SpawnSeed(_bulletStart.position, transform.rotation, _ammunitionStorage.projectileType);
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2992916451172373539}
   - component: {fileID: 1569032526}
   - component: {fileID: 1569032527}
+  - component: {fileID: -3946153426845635791}
   - component: {fileID: 1213982535516451508}
   - component: {fileID: 76864519}
   m_Layer: 10
@@ -151,6 +152,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPointCollection: {fileID: 0}
   reachThreshold: 2
+--- !u!114 &-3946153426845635791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992916451172373536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00a076312b8b6b4b9539c78022b2f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1213982535516451508
 MonoBehaviour:
   m_ObjectHideFlags: 0
