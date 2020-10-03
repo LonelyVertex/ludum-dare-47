@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 2992916451172373539}
   - component: {fileID: 1569032526}
   - component: {fileID: 1569032527}
-  - component: {fileID: 1213982535516451508}
   - component: {fileID: -8265830786349434223}
+  - component: {fileID: 5316707620932062446}
+  - component: {fileID: 3855185705561143385}
+  - component: {fileID: 1213982535516451508}
   m_Layer: 10
   m_Name: Aphid
   m_TagString: Enemy
@@ -168,6 +170,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPointCollection: {fileID: 0}
   reachThreshold: 2
+--- !u!114 &-8265830786349434223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992916451172373536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c682e41e3937422dbb3b38f9eec46f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5316707620932062446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992916451172373536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00a076312b8b6b4b9539c78022b2f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+--- !u!114 &3855185705561143385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992916451172373536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f886535dc1dd497b8076a8fff2fb91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vision: {fileID: 1569032526}
+  range: 1
+  timer: 2
+  damage: 1
 --- !u!114 &1213982535516451508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,17 +224,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigation: {fileID: 2992916451172373539}
-  wayPoints: {fileID: 1569032527}
   vision: {fileID: 1569032526}
---- !u!114 &-8265830786349434223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2992916451172373536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c682e41e3937422dbb3b38f9eec46f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  wayPoints: {fileID: 1569032527}

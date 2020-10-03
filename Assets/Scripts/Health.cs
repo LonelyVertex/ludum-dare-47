@@ -10,10 +10,13 @@ public class Health : MonoBehaviour
     
     public void DealDamage(int amount)
     {
+        Debug.Log(gameObject.name + " got damage of " + amount + ". Ouch that hurt!");
+        
         currentHealth -= amount;
 
         if (currentHealth <= 0)
         {
+            Debug.Log(gameObject.name + " should die now. :'(");
             healthDepletedEvent?.Invoke();
         }
     }
