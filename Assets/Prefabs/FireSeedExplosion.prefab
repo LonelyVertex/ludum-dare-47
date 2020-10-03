@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxsize: 5
-  growthSpeed: 1.1
+  damageTickRate: 0
+  growthSpeed: 5
   explosion: {fileID: 9117357937163460042}
   fadeOutSpeed: 1

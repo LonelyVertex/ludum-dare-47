@@ -32,44 +32,15 @@ public class FireSeedExplosion : MonoBehaviour
 
 
         SR.color = new Color(SR.color.r, SR.color.g, SR.color.b,  Mathf.Lerp(1, 0, alphaT));
-        alphaT += 0.5f * Time.deltaTime;
-        /*
-        if (SR != null)
-        {
-            float _alpha;
-            _alpha = SR.color.a;
-
-            if (SR.color.a > 0)
-            {
-                _alpha -= Time.deltaTime * fadeOutSpeed;
-                SR.color = new Color(SR.color.r, SR.color.g, SR.color.b, _alpha);
-            }
-            else
-            {
-
-                GameObject.Destroy(this.gameObject);
-            }
-        }
-        */
+        alphaT += fadeOutSpeed * Time.deltaTime;
+   
     }
 
     private void FixedUpdate()
     {
-
-
         transform.localScale = Vector3.one * Mathf.Lerp(1f, 5f, scaleT);
-        scaleT += 0.5f * Time.deltaTime;
-        /* if (transform.localScale.x < maxsize)
-            {
-                Debug.Log ( explosion.localScale);
-                transform.localScale = transform.localScale * (growthSpeed) ;
-            }
-            else 
-            {
-                    //collider not active
-                //GameObject.Destroy (this.gameObject);
-            }
-     */
+        scaleT += growthSpeed * Time.deltaTime;
+   
     }
  private void OnTriggerStay2D(Collider2D other) {
      
