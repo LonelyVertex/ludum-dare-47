@@ -1,41 +1,43 @@
 ﻿using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(EnemyNavigation))]
-[RequireComponent(typeof(EnemyVision))]
-[RequireComponent(typeof(EnemyWayPoints))]
+
 public class SimpleEnemyController : MonoBehaviour
 {
-    [Inject] private Player _player;
-    
-    private EnemyNavigation _navigation;
-    private EnemyVision _vision;
-    private EnemyWayPoints _wayPoints;
+    [Inject] protected Player Player;
 
-    private bool _chasingPlayer;
-    
-    void Start()
+    [Header("Simple Enemy Controller ")] public EnemyNavigation navigation;
+    public EnemyVision vision;
+    public EnemyWayPoints wayPoints;
+
+    protected bool ChasingPlayer;
+
+    protected virtual void Start()
     {
-        _navigation = GetComponent<EnemyNavigation>();
-        _vision = GetComponent<EnemyVision>();
-        _wayPoints = GetComponent<EnemyWayPoints>();
-        
-        _navigation.SetTarget(_wayPoints.CurrentWayPoint);
+        if (!ChasingPlayer)
+        {
+            navigation.SetTarget(wayPoints.CurrentWayPoint);
+        }
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        if (_chasingPlayer) return;
-        
-        if (_wayPoints.HasReachedWayPoint)
+        if (ChasingPlayer) return;
+
+        if (wayPoints.HasReachedWayPoint)
         {
-            _navigation.SetTarget(_wayPoints.NextWayPoint());
+            navigation.SetTarget(wayPoints.NextWayPoint());
         }
-        
-        if (_vision.CanSeePlayer)
+
+        if (vision.CanSeePlayer)
         {
-            _navigation.SetTarget(_player.transform);
-            _chasingPlayer = true;
+            ChasePlayer();
         }
+    }
+
+    public void ChasePlayer()
+    {
+        navigation.SetTarget(Player.transform);
+        ChasingPlayer = true;
     }
 }

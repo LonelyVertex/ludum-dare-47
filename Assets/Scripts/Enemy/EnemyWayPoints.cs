@@ -13,6 +13,13 @@ public class EnemyWayPoints : MonoBehaviour
     public bool HasReachedWayPoint =>
         Vector3.Distance(transform.position, wayPointCollection.wayPoints[_currentWayPoint].position) <= reachThreshold;
 
+    public void CopyState(EnemyWayPoints other)
+    {
+        wayPointCollection = other.wayPointCollection;
+        _currentWayPoint = other._currentWayPoint;
+        _countDirection = other._countDirection;
+    }
+    
     public Transform NextWayPoint()
     {
         if (wayPointCollection.wayPoints.Count == 0) return null;

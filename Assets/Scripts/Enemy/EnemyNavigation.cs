@@ -8,7 +8,9 @@ public class EnemyNavigation : MonoBehaviour
     
     private NavMeshAgent _navMeshAgent;
     private Transform _target;
-    
+
+    public Transform Target => _target;
+
     public void SetTarget(Transform target)
     {
         _target = target;
@@ -34,8 +36,6 @@ public class EnemyNavigation : MonoBehaviour
 
     private void RotateTowardsDestination()
     {
-//        var vectorToTarget = _navMeshAgent.destination - transform.position;
-//        var angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         var velocity = _navMeshAgent.velocity;
         var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);

@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3c62ceb35aa42158bdef295c9fee0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   wave1:
     drawGizmos: 1
     spawnTime: 5
@@ -249,7 +250,7 @@ MonoBehaviour:
       array:
       - spawnPoint: {fileID: 44635149}
         wayPointCollection: {fileID: 625550258}
-        enemyPrefab: {fileID: 2992916451172373536, guid: 26d6d954d0a1e4359b76b1a26c241018,
+        enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
         baseCount: 3
         spawnDelay: 1
@@ -260,7 +261,7 @@ MonoBehaviour:
       array:
       - spawnPoint: {fileID: 44635149}
         wayPointCollection: {fileID: 2034680766}
-        enemyPrefab: {fileID: 2992916451172373536, guid: 26d6d954d0a1e4359b76b1a26c241018,
+        enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
         baseCount: 3
         spawnDelay: 1
@@ -271,7 +272,7 @@ MonoBehaviour:
       array:
       - spawnPoint: {fileID: 178715789}
         wayPointCollection: {fileID: 733250265}
-        enemyPrefab: {fileID: 2992916451172373536, guid: 26d6d954d0a1e4359b76b1a26c241018,
+        enemyPrefab: {fileID: 4366638580511262666, guid: 1448d927e1fbc409b837e4f802d9ceb8,
           type: 3}
         baseCount: 1
         spawnDelay: 0
@@ -331,12 +332,12 @@ PrefabInstance:
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.73
       objectReference: {fileID: 0}
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -12.23
       objectReference: {fileID: 0}
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}

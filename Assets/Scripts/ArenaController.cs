@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using Malee.List;
 using ModestTree;
 using UnityEditor;
@@ -32,7 +31,8 @@ public class ArenaController : MonoBehaviour
     {
     }
 
-    public Wave wave1;
+    public int level;
+    [Space] public Wave wave1;
     [Space] public Wave wave2;
     [Space] public Wave bossWave;
     
@@ -119,7 +119,6 @@ public class ArenaController : MonoBehaviour
 
         var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, rotation, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
-        
-        // Set Health here
+        enemy.GetComponent<EnemyLevelScaler>().SetLevel(level);
     }
 }
