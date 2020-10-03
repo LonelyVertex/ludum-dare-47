@@ -10,7 +10,7 @@ public class Weapons : MonoBehaviour
     public float _shootDelay;
     public Transform _bulletStart;
 
-    private float _lastFired;
+    private float _lastFired = Mathf.NegativeInfinity;
     
     private void Awake()
     {
