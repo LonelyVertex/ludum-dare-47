@@ -20,11 +20,11 @@ public class PlayerInputState : IInitializable, IDisposable
         _playerInputActions.Player.Look.performed += LookPerformed;
 
         _playerInputActions.Player.Dash.performed += DashPerformed;
-        _playerInputActions.Player.Fire.performed += FirePerformed;
+        _playerInputActions.Player.Fire.started += FireStarted;
     }
 
-    private void FirePerformed(InputAction.CallbackContext ctx)
-    {
+    private void FireStarted(InputAction.CallbackContext ctx)
+    {   
         fireEvent?.Invoke();
     }
 
