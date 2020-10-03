@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 
@@ -9,15 +10,23 @@ public class SimpleEnemyController : MonoBehaviour
     [Header("Simple Enemy Controller ")] public EnemyNavigation navigation;
     public EnemyVision vision;
     public EnemyWayPoints wayPoints;
+    public Health health;
 
     protected bool ChasingPlayer;
 
     protected virtual void Start()
     {
+        health.healthDepletedEvent += OnHealthDepleted;
+        
         if (!ChasingPlayer)
         {
             navigation.SetTarget(wayPoints.CurrentWayPoint);
         }
+    }
+
+    private void OnDestroy()
+    {
+        health.healthDepletedEvent -= OnHealthDepleted;
     }
 
     protected virtual void Update()
@@ -39,5 +48,11 @@ public class SimpleEnemyController : MonoBehaviour
     {
         navigation.SetTarget(Player.transform);
         ChasingPlayer = true;
+    }
+
+    private void OnHealthDepleted()
+    {
+        // TODO some fancy effects of dying
+        Destroy(gameObject);
     }
 }
