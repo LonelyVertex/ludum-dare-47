@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 public class Weapons : MonoBehaviour
 {
-    [Inject] PlayerInputState _playerInputState;
-    int currentAmmoCount;
-    public Transform bulletStart;
-    public GameObject regularSeed;
+    [Inject] private readonly PlayerInputState _playerInputState = default;
+    [Inject] private readonly AmmunitionStorage _ammunitionStorage = default;
+    [Inject] private readonly ProjectileEngineManager _projectileEngineManager = default;
 
+    public float _shootDelay;
+    public Transform _bulletStart;
+
+    private float _lastFired;
+    
     private void Awake()
     {
         _playerInputState.fireEvent += HandleFire;
@@ -17,16 +19,17 @@ public class Weapons : MonoBehaviour
 
     private void HandleFire()
     {
-        GameObject.Instantiate(regularSeed, bulletStart.position, transform.rotation);
-    }
+        if (Time.time - _lastFired < _shootDelay)
+        {
+            return;
+        }
+        
+        if (!_ammunitionStorage.GetAmmo())
+        {
+            return;
+        }
 
-    void Start()
-    {
-        currentAmmoCount = 3;
-    }
-
-    void LowerAmmoCount()
-    {
-        currentAmmoCount -= 1;
+        _lastFired = Time.time;
+        _projectileEngineManager.SpawnSeed(_bulletStart.position, transform.rotation);
     }
 }

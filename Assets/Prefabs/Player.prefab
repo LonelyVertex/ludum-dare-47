@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321436904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7740528653140053089}
   - component: {fileID: 7740528653140053118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7740528653826372322}
   - component: {fileID: 7740528653826372325}
   - component: {fileID: 662484932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,9 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ef82d81ffd2b44884a89ee5fb6e6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletStart: {fileID: 1321436904}
-  regularSeed: {fileID: 876079998508516809, guid: 4bd9ab2c639c5914eb7f5f9eb0507e6f,
-    type: 3}
+  _shootDelay: 1
+  _bulletStart: {fileID: 1321436904}
 --- !u!1 &7740528654772842282
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7740528654772842283}
   - component: {fileID: 7740528654772842280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
