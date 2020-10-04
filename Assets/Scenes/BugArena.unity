@@ -379,7 +379,7 @@ MonoBehaviour:
         spawnDelay: 2
         spawnCount: 2
         scaleSpawn: 0
-    bossWave: 0
+    bossWave: 1
 --- !u!4 &139711774
 Transform:
   m_ObjectHideFlags: 0
