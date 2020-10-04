@@ -17,10 +17,10 @@ public class InGameController : MonoBehaviour
     void Update()
     {
         _healthBar.maxValue = _player.health.maxHealth;
-        
+
         _waveCountText.text = $"{_gameState.spawnedWaveCount} / 3";
-        _enemyCountText.text = $"Spawned enemies: {_gameState.spawnedEnemyCount}";
-        _healthBar.value = (float)_player.health.currentHealth;
+        _enemyCountText.text = $"Enemies: {_gameState.spawnedEnemyCount}";
+        _healthBar.value = _player.health.currentHealth;
         _ammoCountText.text = $"Ammo: {_ammunitionStorage.currentAmmunitionCount} / {_ammunitionStorage.maxAmmunitionCount}";
     }
 }
