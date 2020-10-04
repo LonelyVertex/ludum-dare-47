@@ -5,12 +5,10 @@ using UnityEngine.AI;
 public class EnemyNavigation : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
-    public float rotationSpeed;
+    public SpriteRenderer spriteRenderer;
     
     private Transform _target;
-
-    public Transform Target => _target;
-
+    
     public void SetTarget(Transform target)
     {
         _target = target;
@@ -36,9 +34,6 @@ public class EnemyNavigation : MonoBehaviour
 
     private void RotateTowardsDestination()
     {
-        var velocity = navMeshAgent.velocity;
-        var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-        var targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        spriteRenderer.flipX = navMeshAgent.velocity.x < 0;
     }
 }

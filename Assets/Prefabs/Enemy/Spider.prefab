@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1b8919c5d21c448ea9ce8485904abf9a, type: 3}
-  m_Color: {r: 0, g: 0.19600487, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 373c7514c93f69840b5963655409c401, type: 3}
+  m_Color: {r: 0.004494493, g: 0.190443, b: 0.9528302, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 2992916451172373538}
+  spriteRenderer: {fileID: 2992916451172373565}
   rotationSpeed: 5
 --- !u!114 &1569032526
 MonoBehaviour:

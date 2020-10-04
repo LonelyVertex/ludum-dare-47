@@ -109,15 +109,7 @@ public class ArenaController : MonoBehaviour
 
     void SpawnEnemy(SpawnPoint spawnPoint)
     {
-        var rotation = Quaternion.identity;
-        if (!spawnPoint.wayPointCollection.wayPoints.IsEmpty())
-        {
-            var vectorToTarget = spawnPoint.wayPointCollection.GetPosition(0) - spawnPoint.spawnPoint.position;
-            var angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-            rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
-
-        var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, rotation, null);
+        var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, Quaternion.identity, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
         enemy.GetComponent<EnemyLevelScaler>().SetLevel(level);
     }
