@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
 
     private int _currentHealth;
     private int _maxHealth;
+
+    public int maxHealth => _maxHealth;
+    public int currentHealth => _currentHealth;
     
     public bool HasFullHealth => _currentHealth == _maxHealth;
     public bool IsAlive => _currentHealth > 0;
