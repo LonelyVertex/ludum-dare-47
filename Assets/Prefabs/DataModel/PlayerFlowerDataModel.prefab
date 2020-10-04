@@ -45,6 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFlowers:
   - {fileID: 11400000, guid: 1a132e465ca09504f9cc22a2d0b6dde0, type: 2}
-  - {fileID: 11400000, guid: db3c20f9299f87d4fb526d7117885cac, type: 2}
   - {fileID: 11400000, guid: f7fcbe9df2eb48c4c8a154174f083a6f, type: 2}
   - {fileID: 11400000, guid: ea1c73ecd5ad64f4e8a6bf43aa7e7dd9, type: 2}
