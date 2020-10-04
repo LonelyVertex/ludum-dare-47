@@ -18,13 +18,11 @@ public class EnemyRangedAttack : MonoBehaviour
     {
         if (!health.IsAlive) return;
         
+        _currentTimer -= Time.deltaTime;
+        
         if (vision.CanSeePlayer && CanAttack)
         {
             AttackPlayer();
-        }
-        else
-        {
-            _currentTimer -= Time.deltaTime;
         }
     }
 

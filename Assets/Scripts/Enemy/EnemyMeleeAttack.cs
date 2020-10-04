@@ -27,13 +27,11 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (!health.IsAlive) return;
         
+        _currentTimer -= Time.deltaTime;
+
         if (vision.CanSeePlayer && InRange && CanAttack)
         {
             AttackPlayer();
-        }
-        else
-        {
-            _currentTimer -= Time.deltaTime;
         }
     }
 
