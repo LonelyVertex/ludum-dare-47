@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -14,7 +15,7 @@ public class GameState : MonoBehaviour
         Paused
     }
 
-    public PlayerFlowerSO[] availableFlowers;
+    public List<PlayerFlowerSO> availableFlowers;
 
     public int spawnedEnemyCount => _spawnedEnemyCount;
     public int spawnedWaveCount => _spawnedWaveCount;
@@ -32,7 +33,7 @@ public class GameState : MonoBehaviour
     public void ResetState()
     {
         _gameStateType = GameStateType.Paused;
-        availableFlowers = _playerFlowerDataModel.playerFlowers;
+        availableFlowers = new List<PlayerFlowerSO>(_playerFlowerDataModel.playerFlowers);
 
         _arenaController = null;
         level = 0;
@@ -78,8 +79,14 @@ public class GameState : MonoBehaviour
 
     public void KillFlower(PlayerFlowerType playerFlowerType)
     {
+        Debug.Log(playerFlowerType);
+        
+        Debug.Log(availableFlowers.Count);
+        
         availableFlowers = availableFlowers.Where(playerFlower => playerFlower.playerFlowerType != playerFlowerType)
-            .ToArray();
+            .ToList();
+
+        Debug.Log(availableFlowers.Count);
     }
 
     public void EnemySpawned()

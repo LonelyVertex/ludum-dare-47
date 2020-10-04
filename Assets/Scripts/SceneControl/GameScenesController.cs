@@ -19,13 +19,14 @@ public class GameScenesController : MonoBehaviour
 
     public void ToGame(int level)
     {
-        var scene = GetScene(level);        
+        var scene = GetScene(level);
+
         TransitionToScene(scene.scenePath);
     }
 
     public SceneSO GetScene(int level)
     {
-        return scenes[level % scenes.Length];
+        return scenes[(level - 1) % scenes.Length];
     }
     
     public void TransitionToScene(string scene)

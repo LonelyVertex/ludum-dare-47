@@ -8,7 +8,6 @@ public class MenuStarter : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("Start");
         _uiPanelController.ShowMenu();
     }
 }

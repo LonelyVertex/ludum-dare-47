@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
             enabled = false;
             _gameState.Pause();
             _uiPanelController.ShowArenaCompletedUI();
+            _gameState.CloseArena();
         }
     }
 
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
         _gameState.Pause();
         
         _gameState.KillFlower(_playerFlower.playerFlowerType);
-        if (_gameState.availableFlowers.Length > 0)
+        if (_gameState.availableFlowers.Count > 0)
         {
             _uiPanelController.ShowPlayerSelectionUI();
         }

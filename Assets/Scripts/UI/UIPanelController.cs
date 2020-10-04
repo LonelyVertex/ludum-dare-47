@@ -26,8 +26,6 @@ public class UIPanelController : MonoBehaviour
 
     protected void Start()
     {
-        Debug.Log("End");
-     
         _eventSystem = FindObjectOfType<EventSystem>();
 
         if (_playerSelectionController != null)
@@ -68,6 +66,8 @@ public class UIPanelController : MonoBehaviour
 
     public void ShowPlayerSelectionUI(bool instant = false)
     {
+        _playerSelectionController.Show();
+        
         SwitchPanels(_playerSelectionPanel, _currentDisplayedPanel, instant);
     }
 
@@ -78,6 +78,8 @@ public class UIPanelController : MonoBehaviour
 
     public void ShowArenaCompletedUI(bool instant = false)
     {
+        _nextLevelController.Show();
+        
         SwitchPanels(_arenaFinishedUIPanel, _currentDisplayedPanel, instant);
     }
 

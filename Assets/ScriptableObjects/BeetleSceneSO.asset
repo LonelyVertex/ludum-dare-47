@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db856cea66444445adcc91b0d8a2437, type: 3}
   m_Name: BeetleSceneSO
   m_EditorClassIdentifier: 
-  scenePath: SampleArena
+  scenePath: BugArena
   scenePreview: {fileID: 21300000, guid: 761a9a9116c510d47af335f15ba6e6d5, type: 3}

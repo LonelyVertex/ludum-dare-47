@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
         _startGameButton.onClick.AddListener(() =>
         {
             _gameState.ResetState();
-            _gameScenesController.ToGame(0);
+            _gameScenesController.ToGame(1);
         });
         
         _creditsButton.onClick.AddListener(() =>
