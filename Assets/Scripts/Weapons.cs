@@ -19,6 +19,11 @@ public class Weapons : MonoBehaviour
 
     private void HandleFire()
     {
+        if (_bulletStart == null)
+        {
+            return;
+        }
+        
         if (Time.time - _lastFired < _shootDelay)
         {
             return;
