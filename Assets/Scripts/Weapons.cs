@@ -30,6 +30,6 @@ public class Weapons : MonoBehaviour
         }
 
         _lastFired = Time.time;
-        _playerProjectileEngineManager.SpawnSeed(_bulletStart.position, transform.rotation, _ammunitionStorage.playerFlowerType);
+        _playerProjectileEngineManager.SpawnSeed(_bulletStart.position, _bulletStart.rotation, _ammunitionStorage.playerFlowerType);
     }
 }

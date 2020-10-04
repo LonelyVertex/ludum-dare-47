@@ -8,6 +8,8 @@ public class ProjectileEngine : MonoBehaviour
     public float projectileSpeed;
     public float lifespan;
     public PlayerFlowerType playerFlowerType;
+    public FlowerGraphicSwapper _flowerGraphicSwapper = default;
+    
     public event Action<ProjectileEngine, GameObject, Vector3, Quaternion, Vector3> killProjectile;
 
     private float _currentLifeSpan;
@@ -28,6 +30,7 @@ public class ProjectileEngine : MonoBehaviour
 
         _currentLifeSpan = lifespan;
         playerFlowerType = type;
+        _flowerGraphicSwapper.SwapGraphics(type);
     }
     
     private void Update()

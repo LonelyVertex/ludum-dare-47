@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     
     public Health health;
     public Rigidbody2D rigidbody2D;
+    public FlowerGraphicSwapper flowerGraphicSwapper = default;
 
+    
     private PlayerFlowerSO _playerFlower;
 
     void Start()
@@ -48,6 +50,8 @@ public class Player : MonoBehaviour
     public void ResetPlayer(PlayerFlowerSO playerFlowerSo)
     {
         _playerFlower = playerFlowerSo;
+        
+        flowerGraphicSwapper.SwapGraphics(playerFlowerSo.playerFlowerType);
         
         health.SetMaxHealth(playerFlowerSo.maxHealth);
         

@@ -8,22 +8,17 @@ public class PiercingSeedExplosion : MonoBehaviour
     private GameObject firstTarget;
     public GameObject FirstTarget
     {
-        set
-        {
-            firstTarget = value;
-        }
+        set => firstTarget = value;
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         Debug.Log("dealing damage");
-        if (firstTarget.tag=="Enemy")
+        if (firstTarget.CompareTag("Enemy"))
         {
-        firstTarget.GetComponent<Health>().DealDamage(damage);
+            firstTarget.GetComponent<Health>().DealDamage(damage);
         }
+
         Destroy (this.gameObject);
     }
-
-    // Update is called once per frame
-   
 }

@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     
     [Inject] private PlayerInputState _playerInputState = default;
     
-    private Camera _camera;
     private bool wantsToDash;
     private int _slowAreas;
 
@@ -19,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void Awake()
     {
-        _camera = Camera.main;
-
         _playerInputState.dashEvent += HandleDashEvent;
     }
 
@@ -36,16 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var direction = _camera.ScreenToWorldPoint(_playerInputState.mousePosition) - transform.position;
-
         _rigidbody2D.velocity = _playerInputState.movement * MoveSpeed;
-        _rigidbody2D.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (wantsToDash)
+        /* if (wantsToDash)
         {
             _rigidbody2D.velocity *= _dashMultiplier;
             wantsToDash = false;
-        }
+        } */
     }
 
     public void EnterSlowArea()
