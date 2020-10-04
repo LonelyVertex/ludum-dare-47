@@ -9,10 +9,12 @@ public class AcidSeedExplosion : MonoBehaviour
     private float _tick;
     float alphaT;
     public float fadeOutSpeed = 1;
+    private List<GameObject> enemiesInPool;
     private SpriteRenderer SR;
     // Start is called before the first frame update
     void Start()
     {
+        enemiesInPool = new List<GameObject>();
         SR = GetComponentInChildren<SpriteRenderer>();
         _tick = 0;
     }
@@ -25,20 +27,33 @@ public class AcidSeedExplosion : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    
+    private void OnTriggerEnter2D(Collider2D other) 
     {
-
-        if (other.tag == "Enemy" && _tick <= 0)
+        if (other.tag=="Enemy")
         {
-            _tick = damageTickRate;
-            other.GetComponent<Health>().DealDamage(damagePerTick);
-            Debug.Log("damaging enemy");
+         
+          enemiesInPool.Add(other.gameObject);
         }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+         enemiesInPool.Remove(other.gameObject);
     }
     // Update is called once per frame
     void Update()
     {
         FadeOut();
         _tick -= Time.deltaTime;
+        if (_tick <=0 && enemiesInPool.Count>0)
+        {
+
+            foreach (GameObject enemy in enemiesInPool)
+            {
+
+                enemy.GetComponent<Health>().DealDamage(damagePerTick);
+                _tick = damageTickRate;
+            }
+            
+        }
     }
 }

@@ -42,12 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3735688180826034218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0045f841626e64bac10481b07e2121, type: 3}
+  m_Script: {fileID: 11500000, guid: e0a6b7bb2b6dc55408cbc346e1d068c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 5
+  damagePerTick: 2
   damageTickRate: 0.1
-  fadeOutSpeed: 0.05
+  fadeOutSpeed: 0.2
 --- !u!58 &3735688180826034217
 CircleCollider2D:
   m_ObjectHideFlags: 0
