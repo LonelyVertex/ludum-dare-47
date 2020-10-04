@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7656267557789951926
+--- !u!1 &4278673784295647740
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7656267557789951924}
-  - component: {fileID: 7656267557789951927}
+  - component: {fileID: 4278673784295647618}
+  - component: {fileID: 4278673784295647741}
   m_Layer: 0
-  m_Name: ProjectEngineManager
+  m_Name: ElectricSeedExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7656267557789951924
+--- !u!4 &4278673784295647618
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656267557789951926}
+  m_GameObject: {fileID: 4278673784295647740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.0553066, y: -0.6204434, z: -7.039219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7656267557789951927
+--- !u!114 &4278673784295647741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656267557789951926}
+  m_GameObject: {fileID: 4278673784295647740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c57af824da7474e823f50459b59c57, type: 3}
+  m_Script: {fileID: 11500000, guid: d46d727b72d5e4143a136501a494cd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireExplosion: {fileID: 9117357937317817632, guid: 6fa00c97e49fef54babf953cc1afc679,
-    type: 3}
-  electricExplosion: {fileID: 4278673784295647740, guid: 7239e98a3fec2084185f685a0714f235,
-    type: 3}
+  boltRange: 5
+  boltDamage: 10
+  boltMaxJumps: 10

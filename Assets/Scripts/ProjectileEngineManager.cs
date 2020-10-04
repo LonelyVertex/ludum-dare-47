@@ -7,6 +7,7 @@ public class ProjectileEngineManager : MonoBehaviour
     [Inject] private readonly PickableSeedManager _pickableSeedManager = default;
     
     public GameObject fireExplosion;
+     public GameObject electricExplosion;
  
     public void SpawnSeed(Vector3 position, Quaternion rotation, PlayerFlowerType playerFlowerType)
     {
@@ -32,7 +33,11 @@ public class ProjectileEngineManager : MonoBehaviour
                 Debug.Log("Poison");
                 break;
             case PlayerFlowerType.Electric:
-                Debug.Log("Electric");
+               
+                GameObject tmp=GameObject.Instantiate(electricExplosion, hitPosition, rotation);
+                tmp.GetComponent <ElectricSeedExplosion>().FirstTarget=hitGameObject;
+
+            
                 break;
             case PlayerFlowerType.Piercing:
                 Debug.Log("Piercing");
