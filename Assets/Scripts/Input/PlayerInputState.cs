@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-using Zenject;
 
-public class PlayerInputState : IInitializable, IDisposable
+public class PlayerInputState
 {
     public Vector2 movement { get; private set; }
     public Vector2 mousePosition { get; private set; }
@@ -56,15 +55,5 @@ public class PlayerInputState : IInitializable, IDisposable
     public void DisableInput()
     {
         _playerInputActions.Disable();
-    }
-
-    public void Initialize()
-    {
-        // _playerInputActions.Enable();
-    }
-
-    public void Dispose()
-    {
-        // _playerInputActions.Disable();
     }
 }

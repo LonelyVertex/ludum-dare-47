@@ -482,7 +482,7 @@ MonoBehaviour:
   _menuPanel: {fileID: 0}
   _creditsPanel: {fileID: 0}
   _playerSelectionController: {fileID: 2035770026273880903}
-  _nextLevelController: {fileID: 0}
+  _nextLevelController: {fileID: 7966116944732735150}
 --- !u!1 &2035770026273880901
 GameObject:
   m_ObjectHideFlags: 0
