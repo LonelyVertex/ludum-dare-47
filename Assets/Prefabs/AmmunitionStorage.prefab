@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cd612c43b1fcf49b05b47eb3ba7bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFlowerType: 2
   _maxAmmunition: 3
   _currentAmmoCount: 3

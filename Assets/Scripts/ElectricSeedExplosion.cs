@@ -11,10 +11,11 @@ public class ElectricSeedExplosion : MonoBehaviour
 
     private Collider2D randomTarget;
     LayerMask enemyMask;
-    private GameObject firstTarget;
+
     private GameObject nextTarget;
     List<GameObject> potentialTargets;
     private List<Vector3> boltPath;
+    private GameObject firstTarget;
     public GameObject FirstTarget
     {
         set
@@ -44,11 +45,11 @@ public class ElectricSeedExplosion : MonoBehaviour
         {
             Debug.Log("there are " + potentialTargets.Count + " potential targets");
             enemyInProximity = potentialTargets[Random.Range(0, potentialTargets.Count)];
-            Debug.Log  (potentialTargets);
-            Debug.Log  (potentialTargets.Count);
-            Debug.Log  ("whats there" + potentialTargets[0] );
-        } 
-        Debug.Log ("returning random target " +  enemyInProximity);
+            Debug.Log(potentialTargets);
+            Debug.Log(potentialTargets.Count);
+            Debug.Log("whats there" + potentialTargets[0]);
+        }
+        Debug.Log("returning random target " + enemyInProximity);
         return enemyInProximity;
 
     }
@@ -63,9 +64,9 @@ public class ElectricSeedExplosion : MonoBehaviour
 
         for (int i = boltMaxJumps; i > 0; i--)
         {
-            Debug.Log ("trying to find target");
+            Debug.Log("trying to find target");
             nextTarget = getRandomEnemyInProximity(currentBoltLocation.transform);
-             Debug.Log ("found " + nextTarget);
+            Debug.Log("found " + nextTarget);
             if (nextTarget != null)
             {
                 Debug.Log("dealing damage jumps left" + i);
@@ -75,7 +76,7 @@ public class ElectricSeedExplosion : MonoBehaviour
             else
             {
                 Debug.Log("no target to hit");
-                break;
+                Destroy (this.gameObject);
             }
         }
     }

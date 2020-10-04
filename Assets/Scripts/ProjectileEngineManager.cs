@@ -5,10 +5,11 @@ public class ProjectileEngineManager : MonoBehaviour
 {
     [Inject] private readonly ProjectileEngine.Pool _projectileEnginePool = default;
     [Inject] private readonly PickableSeedManager _pickableSeedManager = default;
-    
+
     public GameObject fireExplosion;
-     public GameObject electricExplosion;
- 
+    public GameObject electricExplosion;
+    public GameObject tmp;
+    public GameObject PiercingExplosion;
     public void SpawnSeed(Vector3 position, Quaternion rotation, PlayerFlowerType playerFlowerType)
     {
         var seed = _projectileEnginePool.Spawn(position, rotation, playerFlowerType);
@@ -21,29 +22,27 @@ public class ProjectileEngineManager : MonoBehaviour
         projectileEngine.killProjectile -= HandleKillProjectile;
 
         _projectileEnginePool.Despawn(projectileEngine);
-        
+
         // Spawn different effect
         switch (projectileEngine.playerFlowerType)
         {
             case PlayerFlowerType.Fire:
-               
+
                 GameObject.Instantiate(fireExplosion, hitPosition, rotation);
                 break;
             case PlayerFlowerType.Poison:
                 Debug.Log("Poison");
                 break;
             case PlayerFlowerType.Electric:
-               
-                GameObject tmp=GameObject.Instantiate(electricExplosion, hitPosition, rotation);
-                tmp.GetComponent <ElectricSeedExplosion>().FirstTarget=hitGameObject;
-
-            
+                tmp = GameObject.Instantiate(electricExplosion, hitPosition, rotation);
+                tmp.GetComponent<ElectricSeedExplosion>().FirstTarget = hitGameObject;
                 break;
             case PlayerFlowerType.Piercing:
-                Debug.Log("Piercing");
+                tmp = GameObject.Instantiate(PiercingExplosion, hitPosition, rotation);
+                tmp.GetComponent<PiercingSeedExplosion>().FirstTarget = hitGameObject;
                 break;
         }
-        
+
         // Spawn ammunition to collect
         _pickableSeedManager.AddPickableSeed(hitPosition, rotation, hitNormal);
     }
