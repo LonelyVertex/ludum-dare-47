@@ -29,7 +29,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         
         _currentTimer -= Time.deltaTime;
 
-        if (vision.CanSeePlayer && InRange && CanAttack)
+        if (InRange && CanAttack)
         {
             AttackPlayer();
         }
