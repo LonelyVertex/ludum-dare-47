@@ -7,7 +7,7 @@ public class SimpleEnemyController : MonoBehaviour
     private const float SpriteColorDuration = 0.2f;
 
     [Inject] protected Player Player;
-    [Inject] private GameState _gameState;
+    [Inject] protected GameState GameState;
 
     [Header("Simple Enemy Controller ")] public SpriteRenderer spriteRenderer;
     public Animator animator;
@@ -104,7 +104,7 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void DestroyLater()
     {
-        _gameState.EnemyDied();
+        GameState.EnemyDied();
         Destroy(gameObject);
     }
 }
