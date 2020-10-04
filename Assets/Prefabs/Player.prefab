@@ -125,8 +125,6 @@ GameObject:
   - component: {fileID: 7740528653826372324}
   - component: {fileID: 472623078942930465}
   - component: {fileID: 7740528653826372329}
-  - component: {fileID: 7740528653826372322}
-  - component: {fileID: 7740528653826372325}
   - component: {fileID: 662484932}
   - component: {fileID: 1026583222495334376}
   m_Layer: 8
@@ -212,7 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2738ad4527cda410eaa288bf55920b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
   health: {fileID: 1026583222495334376}
   rigidbody2D: {fileID: 7740528653826372326}
 --- !u!114 &7740528653826372329
@@ -231,36 +228,6 @@ MonoBehaviour:
   _moveSpeed: 5
   _dashMultiplier: 5
   _slowMultiplier: 0.35
---- !u!114 &7740528653826372322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7740528653826372328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 7740528653826372325}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
---- !u!114 &7740528653826372325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7740528653826372328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a66640dffc5e3f45a555645c3bd6878, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &662484932
 MonoBehaviour:
   m_ObjectHideFlags: 0

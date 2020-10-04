@@ -21,25 +21,11 @@ public class UIPanelController : MonoBehaviour
 
     protected void Start()
     {
+        _eventSystem = FindObjectOfType<EventSystem>();
+        
         _playerSelectionPanel.gameObject.SetActive(false);
         _inGameUIPanel.gameObject.SetActive(false);
         _gameOverUIPanel.gameObject.SetActive(false);
-
-        _playerSelectionController.switchViewEvent += HandlePlayerSelectionControllerSwitchView;
-        
-        ShowPlayerSelectionUI(instant: true);
-
-        _currentDisplayedPanel = _playerSelectionPanel;
-    }
-
-    protected void OnDestroy()
-    {
-        _playerSelectionController.switchViewEvent -= HandlePlayerSelectionControllerSwitchView;
-    }
-
-    private void HandlePlayerSelectionControllerSwitchView()
-    {
-        ShowInGameUI();
     }
 
     public void ShowInGameUI(bool instant = false)
@@ -86,9 +72,10 @@ public class UIPanelController : MonoBehaviour
             
             return;
         }
+        
+        _playerSelectionController.Show();
 
         StartCoroutine(TransitionPanels(_playerSelectionPanel, _currentDisplayedPanel));
-
     }
 
     public void ShowGameOverUI(bool instant = false)
@@ -126,7 +113,11 @@ public class UIPanelController : MonoBehaviour
         while (t < transitionDuration)
         {
             panelIn.canvasGroup.alpha = t / transitionDuration;
-            panelOut.canvasGroup.alpha = 1.0f - t / transitionDuration;
+
+            if (panelOut != null)
+            {
+                panelOut.canvasGroup.alpha = 1.0f - t / transitionDuration;
+            }
 
             t += Time.unscaledDeltaTime;
 
@@ -134,9 +125,13 @@ public class UIPanelController : MonoBehaviour
         }
 
         panelIn.canvasGroup.alpha = 1.0f;
-        panelOut.canvasGroup.alpha = 0.0f;
-        
-        panelOut.gameObject.SetActive(false);
+        if (panelOut != null)
+        {
+            panelOut.canvasGroup.alpha = 0.0f;
+            panelOut.gameObject.SetActive(false);
+        }
+
+        _currentDisplayedPanel = panelIn;
         
         _eventSystem.enabled = true;
     }

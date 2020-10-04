@@ -10,6 +10,8 @@ public class AphidMotherController : SimpleEnemyController
     public float spawnRange;
 
     [Inject] private DiContainer _container;
+    [Inject] private GameState _gameState;
+    
     private float _spawnTimer;
 
     protected override void Start()
@@ -44,6 +46,8 @@ public class AphidMotherController : SimpleEnemyController
         aphid.GetComponent<EnemyLevelScaler>().SetLevel(levelScaler.Level);
         aphid.GetComponent<EnemyWayPoints>().CopyState(wayPoints);
 
+        _gameState.EnemySpawned();
+        
         // if the mother is already chasing spawned aphids will chase, too
         if (ChasingPlayer)
         {

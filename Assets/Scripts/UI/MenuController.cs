@@ -9,11 +9,16 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private Button _startGameButton = default;
 
+    [Inject] private GameState _gameState = default;
     [Inject] private GameScenesController _gameScenesController = default;
     
     void Start()
-    {
-        _startGameButton.onClick.AddListener(() => _gameScenesController.ToGame());
+    {   
+        _startGameButton.onClick.AddListener(() =>
+        {
+            _gameState.ResetState();
+            _gameScenesController.ToGame();
+        });
     }
 
     private void OnDestroy()

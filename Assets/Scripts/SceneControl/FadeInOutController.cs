@@ -38,11 +38,9 @@ public class FadeInOutController : MonoBehaviour
         
         while (current < _duration)
         {
-            Debug.Log($"{_fadeOutCanvas.alpha}");
-            
             _fadeOutCanvas.alpha = Mathf.Lerp(from, to, current / _duration);
             
-            current += Time.deltaTime;
+            current += Time.unscaledDeltaTime;
 
             yield return null;
         }

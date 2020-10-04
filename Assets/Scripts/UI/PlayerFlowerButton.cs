@@ -18,7 +18,6 @@ public class PlayerFlowerButton : MonoBehaviour
         _selectButton.onClick.RemoveAllListeners();
         _selectButton.onClick.AddListener(() =>
         {
-            Debug.Log("Spawn");
             playerFlowerSelectedEvent?.Invoke(playerFlower.playerFlowerType);
         });
     }

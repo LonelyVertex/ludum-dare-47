@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3587623401218864985}
   - component: {fileID: 3587623401218864986}
   - component: {fileID: 3587623401218864991}
-  - component: {fileID: 2541325119955993758}
   - component: {fileID: 431976448112414044}
+  - component: {fileID: 6056038713270096386}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -50,8 +50,8 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 3587623401218864986}
-  - {fileID: 2541325119955993758}
   - {fileID: 431976448112414044}
+  - {fileID: 6056038713270096386}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -105,20 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeControllerPrefab: {fileID: 4604264030407722101, guid: 7effb43f9085847f08dfcd8e493df618,
     type: 3}
---- !u!114 &2541325119955993758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587623401218864987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05081378fb97ae46b7241438906e8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerFlowerDataModel: {fileID: 6612187192413945694, guid: f107d8a6d783c2544ba38414f2869e3a,
-    type: 3}
 --- !u!114 &431976448112414044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efabec4754922f49b116bf343b6ef33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiPanelControllerPrefab: {fileID: 2035770026152327027, guid: 0dac71700e6789b46a8a842057730059,
+    type: 3}
   _fadeInOutPrefab: {fileID: 548244671029653091, guid: 784edc1b627ccbf4888e4918018a500d,
     type: 3}
   _gameScenesControllerPrefab: {fileID: 2793042025683278838, guid: 7bc827e1639390740ba355c4b4539dc4,
     type: 3}
+--- !u!114 &6056038713270096386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587623401218864987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a66640dffc5e3f45a555645c3bd6878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

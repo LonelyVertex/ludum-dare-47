@@ -34,6 +34,9 @@ public class ArenaController : MonoBehaviour
     [Space] public Wave wave1;
     [Space] public Wave wave2;
     [Space] public Wave bossWave;
+
+    public event System.Action waveSpawnedEvent;
+    public event System.Action enemySpawnedEvent;
     
     [Inject] DiContainer _container;
 
@@ -89,6 +92,9 @@ public class ArenaController : MonoBehaviour
         yield return new WaitForSeconds(wave.spawnTime);
 
         Debug.Log("Spawn wave");
+        
+        waveSpawnedEvent?.Invoke();
+        
         foreach (var spawnPoint in wave.spawnPoints)
         {
             StartCoroutine(SpawnSpawnPoint(spawnPoint));
@@ -112,5 +118,7 @@ public class ArenaController : MonoBehaviour
         var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, Quaternion.identity, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
         enemy.GetComponent<EnemyLevelScaler>().SetLevel(level);
+        
+        enemySpawnedEvent?.Invoke();
     }
 }

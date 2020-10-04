@@ -5,6 +5,7 @@ using Zenject;
 public class SimpleEnemyController : MonoBehaviour
 {
     [Inject] protected Player Player;
+    [Inject] private GameState _gameState;
 
     [Header("Simple Enemy Controller ")] public EnemyNavigation navigation;
     public EnemyVision vision;
@@ -58,6 +59,8 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void OnHealthDepleted()
     {
+        _gameState.EnemyDied();
+        
         // TODO some fancy effects of dying
         Destroy(gameObject);
     }
