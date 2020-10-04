@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a6b7bb2b6dc55408cbc346e1d068c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerTick: 5
+  damagePerTick: 15
   damageTickRate: 0.3
   fadeOutSpeed: 0.2
 --- !u!58 &3735688180826034217
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 11e8c30932af0405595d460fd2df0a1f, type: 3}
-  m_Color: {r: 0.22821641, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.7285099, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
