@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private Button _startGameButton = default;
-
+    [SerializeField] private Button _creditsButton = default;
+    [SerializeField] private Button _backFromCreditsButton = default;
+    [SerializeField] private UIPanelController _uiPanelController = default;
+    
     [Inject] private GameState _gameState = default;
     [Inject] private GameScenesController _gameScenesController = default;
     
@@ -19,10 +19,21 @@ public class MenuController : MonoBehaviour
             _gameState.ResetState();
             _gameScenesController.ToGame(0);
         });
+        
+        _creditsButton.onClick.AddListener(() =>
+        {
+            _uiPanelController.ShowCredits();
+        });
+
+        _backFromCreditsButton.onClick.AddListener(() =>
+        {
+            _uiPanelController.ShowMenu();
+        });
     }
 
     private void OnDestroy()
     {
         _startGameButton.onClick.RemoveAllListeners();
+        _creditsButton.onClick.RemoveAllListeners();
     }
 }

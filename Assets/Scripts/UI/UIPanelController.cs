@@ -15,6 +15,9 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] private UIPanel _gameOverUIPanel = default;
     [SerializeField] private UIPanel _arenaFinishedUIPanel = default;
 
+    [SerializeField] private UIPanel _menuPanel = default;
+    [SerializeField] private UIPanel _creditsPanel = default;
+    
     [Space]
     [SerializeField] private PlayerSelectionController _playerSelectionController = default;
     [SerializeField] private NextLevelController _nextLevelController = default;
@@ -23,91 +26,72 @@ public class UIPanelController : MonoBehaviour
 
     protected void Start()
     {
+        Debug.Log("End");
+     
         _eventSystem = FindObjectOfType<EventSystem>();
-        
-        _playerSelectionPanel.gameObject.SetActive(false);
-        _inGameUIPanel.gameObject.SetActive(false);
-        _gameOverUIPanel.gameObject.SetActive(false);
-        _arenaFinishedUIPanel.gameObject.SetActive(false);
+
+        if (_playerSelectionController != null)
+        {
+            _playerSelectionPanel.gameObject.SetActive(false);
+        }
+
+        if (_inGameUIPanel != null)
+        {
+            _inGameUIPanel.gameObject.SetActive(false);
+        }
+
+        if (_gameOverUIPanel != null)
+        {
+            _gameOverUIPanel.gameObject.SetActive(false);
+        }
+
+        if (_arenaFinishedUIPanel != null)
+        {
+            _arenaFinishedUIPanel.gameObject.SetActive(false);
+        }
+
+        if (_menuPanel != null)
+        {
+            _menuPanel.gameObject.SetActive(false);
+        }
+
+        if (_creditsPanel != null)
+        {
+            _creditsPanel.gameObject.SetActive(false);
+        }
     }
 
     public void ShowInGameUI(bool instant = false)
     {
-        if (!_eventSystem.enabled)
-        {
-            return;
-        }
-
-        if (instant)
-        {
-            if (_currentDisplayedPanel != null)
-            {
-                _currentDisplayedPanel.gameObject.SetActive(false);
-                _currentDisplayedPanel.canvasGroup.alpha = 0.0f;
-            }
-            
-            _inGameUIPanel.gameObject.SetActive(true);
-            _inGameUIPanel.canvasGroup.alpha = 1.0f;
-            
-            return;
-        }
-        
-        StartCoroutine(TransitionPanels(_inGameUIPanel, _currentDisplayedPanel));
+        SwitchPanels(_inGameUIPanel, _currentDisplayedPanel, instant);
     }
 
     public void ShowPlayerSelectionUI(bool instant = false)
     {
-        if (!_eventSystem.enabled)
-        {
-            return;
-        }
-        
-        _playerSelectionController.Show();
-        
-        if (instant)
-        {
-            if (_currentDisplayedPanel != null)
-            {
-                _currentDisplayedPanel.gameObject.SetActive(false);
-                _currentDisplayedPanel.canvasGroup.alpha = 0.0f;
-            }
-            
-            _playerSelectionPanel.gameObject.SetActive(true);
-            _playerSelectionPanel.canvasGroup.alpha = 1.0f;
-            
-            return;
-        }
-
-        StartCoroutine(TransitionPanels(_playerSelectionPanel, _currentDisplayedPanel));
+        SwitchPanels(_playerSelectionPanel, _currentDisplayedPanel, instant);
     }
 
     public void ShowGameOverUI(bool instant = false)
     {
-        if (!_eventSystem.enabled)
-        {
-            return;
-        }
-        
-        _nextLevelController.Show();
-
-        if (instant)
-        {
-            if (_currentDisplayedPanel != null)
-            {
-                _currentDisplayedPanel.gameObject.SetActive(false);
-                _currentDisplayedPanel.canvasGroup.alpha = 0.0f;
-            }
-            
-            _gameOverUIPanel.gameObject.SetActive(true);
-            _gameOverUIPanel.canvasGroup.alpha = 1.0f;
-            
-            return;
-        }
-
-        StartCoroutine(TransitionPanels(_gameOverUIPanel, _currentDisplayedPanel));
+        SwitchPanels(_gameOverUIPanel, _currentDisplayedPanel, instant);
     }
 
     public void ShowArenaCompletedUI(bool instant = false)
+    {
+        SwitchPanels(_arenaFinishedUIPanel, _currentDisplayedPanel, instant);
+    }
+
+    public void ShowCredits()
+    {
+        SwitchPanels(_creditsPanel, _currentDisplayedPanel, instant: false);
+    }
+
+    public void ShowMenu()
+    {
+        SwitchPanels(_menuPanel, _currentDisplayedPanel, instant: false);
+    }
+
+    private void SwitchPanels(UIPanel newPanel, UIPanel currentPanel, bool instant)
     {
         if (!_eventSystem.enabled)
         {
@@ -116,21 +100,21 @@ public class UIPanelController : MonoBehaviour
 
         if (instant)
         {
-            if (_currentDisplayedPanel != null)
+            if (currentPanel != null)
             {
-                _currentDisplayedPanel.gameObject.SetActive(false);
-                _currentDisplayedPanel.canvasGroup.alpha = 0.0f;
+                currentPanel.gameObject.SetActive(false);
+                currentPanel.canvasGroup.alpha = 0.0f;
             }
             
-            _arenaFinishedUIPanel.gameObject.SetActive(true);
-            _arenaFinishedUIPanel.canvasGroup.alpha = 1.0f;
+            newPanel.gameObject.SetActive(true);
+            newPanel.canvasGroup.alpha = 1.0f;
             
             return;
         }
 
-        StartCoroutine(TransitionPanels(_arenaFinishedUIPanel, _currentDisplayedPanel));
+        StartCoroutine(TransitionPanels(newPanel, currentPanel));
     }
-
+    
     private IEnumerator TransitionPanels(UIPanel panelIn, UIPanel panelOut)
     {
         _eventSystem.enabled = false;
