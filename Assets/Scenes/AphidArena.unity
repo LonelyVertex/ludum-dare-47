@@ -240,7 +240,7 @@ MonoBehaviour:
     spawnPoints:
       array:
       - spawnPointDelay: 1
-        spawnPoint: {fileID: 178715789}
+        spawnPoint: {fileID: 44635149}
         wayPointCollection: {fileID: 1014732182}
         enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
@@ -248,7 +248,7 @@ MonoBehaviour:
         spawnCount: 5
         scaleSpawn: 0
       - spawnPointDelay: 1
-        spawnPoint: {fileID: 1947575742}
+        spawnPoint: {fileID: 178715789}
         wayPointCollection: {fileID: 733250265}
         enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
           type: 3}
@@ -447,12 +447,12 @@ PrefabInstance:
     - target: {fileID: 1026583222495334376, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: invincibleTime
-      value: 0.7
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1026583222495334376, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: ressurectIvincibleTimer
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1613095714937770158, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
