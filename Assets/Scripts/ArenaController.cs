@@ -20,10 +20,11 @@ public class ArenaController : MonoBehaviour
     [Serializable]
     public struct SpawnPoint
     {
+        public float spawnPointDelay;
         public Transform spawnPoint;
         public WayPointCollection wayPointCollection;
         public GameObject enemyPrefab;
-        public int spawnDelay;
+        public float spawnDelay;
         public int spawnCount;
         public bool scaleSpawn;
     }
@@ -112,6 +113,8 @@ public class ArenaController : MonoBehaviour
 
     IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint)
     {
+        yield return new WaitForSeconds(spawnPoint.spawnPointDelay);
+        
         var spawnDelay = new WaitForSeconds(spawnPoint.spawnDelay);
         var spawnCount = spawnPoint.scaleSpawn ? Scaler.ScaleCount(spawnPoint.spawnCount, _gameState.level) : spawnPoint.spawnCount;
         
