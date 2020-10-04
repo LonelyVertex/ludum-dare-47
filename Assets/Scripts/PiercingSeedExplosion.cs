@@ -17,7 +17,10 @@ public class PiercingSeedExplosion : MonoBehaviour
     void Start()
     {
         Debug.Log("dealing damage");
+        if (firstTarget.tag=="Enemy")
+        {
         firstTarget.GetComponent<Health>().DealDamage(damage);
+        }
         Destroy (this.gameObject);
     }
 
