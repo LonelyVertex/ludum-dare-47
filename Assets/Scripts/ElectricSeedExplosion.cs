@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 
 public class ElectricSeedExplosion : MonoBehaviour
 {
+    public GameObject lightningPrefab;
     public float boltRange;
     public int boltDamage;
     public int boltMaxJumps;
@@ -26,19 +27,35 @@ public class ElectricSeedExplosion : MonoBehaviour
 
     private void StrikeTarget(GameObject target, int jumps)
     {
-        if (target == null || jumps <= 0) return;
-
         target.GetComponent<Health>().DealDamage(boltDamage);
-        StrikeTarget(GetRandomEnemy(target), jumps - 1);
+        var next = GetRandomEnemy(target);
+
+        if (jumps <= 0 || next == null) return;
+
+        SpawnLightning(target.transform, next.transform);
+        StrikeTarget(next, jumps - 1);
+    }
+
+    private void SpawnLightning(Transform target1, Transform target2)
+    {
+        var lightning = Instantiate(lightningPrefab, transform);
+        lightning.GetComponent<Lightning>().SetTargets(target1, target2);
     }
 
     private void Start()
     {
         _enemyMask = LayerMask.GetMask("Enemy");
-        
+
         if (_firstTarget != null && _firstTarget.CompareTag("Enemy"))
         {
             StrikeTarget(_firstTarget, boltMaxJumps);
         }
+        
+        Invoke(nameof(DestroyLater), 0.4f);
+    }
+
+    private void DestroyLater()
+    {
+        Destroy(gameObject);
     }
 }

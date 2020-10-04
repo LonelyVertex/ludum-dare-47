@@ -21,6 +21,7 @@ public class SimpleEnemyController : MonoBehaviour
     private float _spriteColorTimer;
     private Color _defaultColor;
     private Color _tintColor;
+    private bool _isDying;
 
     protected virtual void Start()
     {
@@ -81,8 +82,11 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void OnHealthDepleted()
     {
+        if (_isDying) return;
+        
         _gameState.EnemyDied();
 
+        _isDying = true;
         _spriteColorTimer = 0;
         _defaultColor = Color.black;
         _tintColor = Color.white;
@@ -94,7 +98,10 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void OnDamageTaken()
     {
-        _spriteColorTimer = 0;
+        if (health.IsAlive)
+        {
+            _spriteColorTimer = 0;
+        }
     }
 
     private void DestroyLater()

@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46d727b72d5e4143a136501a494cd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 2209331886224041472, guid: e88177481c29543d795a077c29350e40,
+    type: 3}
   boltRange: 5
   boltDamage: 10
   boltMaxJumps: 10
