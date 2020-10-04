@@ -4,7 +4,7 @@
     public EnemyRangedAttack attack;
     public SpiderQueenController spiderQueen;
 
-    private const int BaseHealth = 250;
+    private const int BaseHealth = 500;
     private const int BaseAttackDamage = 30;
     private const float BaseAttackTimer = 3.5f;
     private const float AttackCooldownLimit = 0.3f;

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxsize: 8
   growthSpeed: 5
-  damage: 25
+  damage: 50
   fadeOutSpeed: 2
 --- !u!212 &2766795425858884159
 SpriteRenderer:
