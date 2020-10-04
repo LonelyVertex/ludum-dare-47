@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FirePlayerFlower
   m_EditorClassIdentifier: 
   playerFlowerType: 0
-  flowerSprite: {fileID: 21300000, guid: 5a7d70d803453ca4a9a2d2cddc20f292, type: 3}
-  maxHealth: 5
+  flowerSprite: {fileID: 21300000, guid: 7c4c3b43b30224f48b4e1affe30a7cf1, type: 3}
+  maxHealth: 100

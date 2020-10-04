@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ElectricPlayerFlower
   m_EditorClassIdentifier: 
   playerFlowerType: 2
-  flowerSprite: {fileID: 21300000, guid: 5a7d70d803453ca4a9a2d2cddc20f292, type: 3}
-  maxHealth: 8
+  flowerSprite: {fileID: 21300000, guid: 17da52d8c6d18b34bb84295d8fed5909, type: 3}
+  maxHealth: 100

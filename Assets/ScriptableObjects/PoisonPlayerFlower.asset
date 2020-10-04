@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PoisonPlayerFlower
   m_EditorClassIdentifier: 
   playerFlowerType: 1
-  flowerSprite: {fileID: 21300000, guid: 5a7d70d803453ca4a9a2d2cddc20f292, type: 3}
-  maxHealth: 7
+  flowerSprite: {fileID: 21300000, guid: 858af2df41c71244a9b546c8368f0cef, type: 3}
+  maxHealth: 100
