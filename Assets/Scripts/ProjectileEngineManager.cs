@@ -8,7 +8,8 @@ public class ProjectileEngineManager : MonoBehaviour
 
     public GameObject fireExplosion;
     public GameObject electricExplosion;
-    public GameObject tmp;
+    public GameObject poisonExplosion;
+    private GameObject tmp;
     public GameObject PiercingExplosion;
     public void SpawnSeed(Vector3 position, Quaternion rotation, PlayerFlowerType playerFlowerType)
     {
@@ -31,7 +32,7 @@ public class ProjectileEngineManager : MonoBehaviour
                 GameObject.Instantiate(fireExplosion, hitPosition, rotation);
                 break;
             case PlayerFlowerType.Poison:
-                Debug.Log("Poison");
+                GameObject.Instantiate(poisonExplosion, hitPosition, rotation);
                 break;
             case PlayerFlowerType.Electric:
                 tmp = GameObject.Instantiate(electricExplosion, hitPosition, rotation);

@@ -47,5 +47,7 @@ MonoBehaviour:
     type: 3}
   electricExplosion: {fileID: 4278673784295647740, guid: 7239e98a3fec2084185f685a0714f235,
     type: 3}
+  poisonExplosion: {fileID: 3735688180826034218, guid: 6020491eb6278334380ce8f34370e188,
+    type: 3}
   PiercingExplosion: {fileID: 5443246474310244977, guid: 5848bf643de096b48b25228c2da80e7e,
     type: 3}

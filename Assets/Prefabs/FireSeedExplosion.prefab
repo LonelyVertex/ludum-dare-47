@@ -48,7 +48,7 @@ MonoBehaviour:
   maxsize: 5
   damageTickRate: 0.3
   growthSpeed: 3
-  damagePerTick: 2
+  damagePerTick: 50
   fadeOutSpeed: 1
 --- !u!212 &2766795425858884159
 SpriteRenderer:
