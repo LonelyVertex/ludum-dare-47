@@ -25,16 +25,18 @@ public class GameScenesController : MonoBehaviour
         string scene = null;
         switch (level % 3)
         {
-            case 1:
+            case 0:
                 scene = aphidScene;
                 break;
-            case 2:
+            case 1:
                 scene = spiderScene;
                 break;
-            case 3:
+            case 2:
                 scene = beetleScene;
                 break;
         }
+
+        Debug.Log(scene);
         
         TransitionToScene(scene);
     }
