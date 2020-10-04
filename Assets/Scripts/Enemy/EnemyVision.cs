@@ -29,7 +29,7 @@ public class EnemyVision : MonoBehaviour
             var hit = Physics2D.Raycast(transform.position, _player.transform.position - transform.position,
                 viewDistance);
 
-            return hit.transform.CompareTag("Player");
+            return hit.transform != null && hit.transform.CompareTag("Player");
         }
     }
 
