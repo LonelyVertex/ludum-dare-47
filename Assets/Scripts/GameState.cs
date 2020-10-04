@@ -9,22 +9,17 @@ public class GameState : MonoBehaviour
     [Inject] private PlayerFlowerDataModel _playerFlowerDataModel = default;
     [Inject] private PlayerInputState _playerInputState = default;
     
-    public enum GameStateType
-    {
-        Running,
-        Paused
-    }
 
     public List<PlayerFlowerSO> availableFlowers;
 
     public int spawnedEnemyCount => _spawnedEnemyCount;
     public int spawnedWaveCount => _spawnedWaveCount;
     public bool bossSpawned => _bossSpawned;
-
+    public int score;
+    
     public int level;
     
     private ArenaController _arenaController;
-    private GameStateType _gameStateType;
 
     private int _spawnedWaveCount;
     private int _spawnedEnemyCount;
@@ -32,7 +27,6 @@ public class GameState : MonoBehaviour
     
     public void ResetState()
     {
-        _gameStateType = GameStateType.Paused;
         availableFlowers = new List<PlayerFlowerSO>(_playerFlowerDataModel.playerFlowers);
 
         _arenaController = null;
@@ -51,6 +45,7 @@ public class GameState : MonoBehaviour
         _spawnedWaveCount = 0;
         _bossSpawned = false;
         level++;
+        score = 0;
     }
 
     public void CloseArena()
@@ -62,7 +57,6 @@ public class GameState : MonoBehaviour
 
     public void Pause()
     {
-        _gameStateType = GameStateType.Paused;
         Time.timeScale = 0;
         
         _playerInputState.DisableInput();
@@ -70,8 +64,6 @@ public class GameState : MonoBehaviour
 
     public void Unpause()
     {
-        _gameStateType = GameStateType.Running;
-        
         _playerInputState.EnableInput();
 
         StartCoroutine(UnpauseDelayed());
@@ -79,14 +71,8 @@ public class GameState : MonoBehaviour
 
     public void KillFlower(PlayerFlowerType playerFlowerType)
     {
-        Debug.Log(playerFlowerType);
-        
-        Debug.Log(availableFlowers.Count);
-        
         availableFlowers = availableFlowers.Where(playerFlower => playerFlower.playerFlowerType != playerFlowerType)
             .ToList();
-
-        Debug.Log(availableFlowers.Count);
     }
 
     public void EnemySpawned()
@@ -96,6 +82,7 @@ public class GameState : MonoBehaviour
     
     public void EnemyDied()
     {
+        score++;
         _spawnedEnemyCount--;
     }
 

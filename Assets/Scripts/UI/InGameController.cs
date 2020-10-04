@@ -5,6 +5,7 @@ using Zenject;
 
 public class InGameController : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _scoreText = default;
     [SerializeField] private Slider _healthBar = default;
     [SerializeField] private TextMeshProUGUI _ammoCountText = default;
     [SerializeField] private TextMeshProUGUI _waveCountText = default;
@@ -18,6 +19,7 @@ public class InGameController : MonoBehaviour
     {
         _healthBar.maxValue = _player.health.maxHealth;
 
+        _scoreText.text = $"Score\n{_gameState.score}";
         _waveCountText.text = $"{_gameState.spawnedWaveCount} / 3";
         _enemyCountText.text = $"Enemies: {_gameState.spawnedEnemyCount}";
         _healthBar.value = _player.health.currentHealth;
