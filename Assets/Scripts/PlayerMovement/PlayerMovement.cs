@@ -7,11 +7,15 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float _moveSpeed = default;
     [SerializeField] private float _dashMultiplier = default;
+    [SerializeField] private float _slowMultiplier = default;
     
     [Inject] private PlayerInputState _playerInputState = default;
     
     private Camera _camera;
     private bool wantsToDash;
+    private int _slowAreas;
+
+    private float MoveSpeed => (_slowAreas > 0 ? _slowMultiplier : 1) * _moveSpeed;
     
     private void Awake()
     {
@@ -34,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var direction = _camera.ScreenToWorldPoint(_playerInputState.mousePosition) - transform.position;
 
-        _rigidbody2D.velocity = _playerInputState.movement * _moveSpeed;
+        _rigidbody2D.velocity = _playerInputState.movement * MoveSpeed;
         _rigidbody2D.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if (wantsToDash)
@@ -42,5 +46,15 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody2D.velocity *= _dashMultiplier;
             wantsToDash = false;
         }
+    }
+
+    public void EnterSlowArea()
+    {
+        _slowAreas++;
+    }
+
+    public void LeaveSlowArea()
+    {
+        _slowAreas--;
     }
 }

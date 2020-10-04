@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput = default;
     
     public Health health;
+    public Rigidbody2D rigidbody2D;
 
     void Awake()
     {
