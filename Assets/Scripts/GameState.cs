@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
 public class GameState : MonoBehaviour
 {
     [Inject] private PlayerFlowerDataModel _playerFlowerDataModel = default;
+    [Inject] private PlayerInputState _playerInputState = default;
     
     public enum GameStateType
     {
@@ -61,12 +63,17 @@ public class GameState : MonoBehaviour
     {
         _gameStateType = GameStateType.Paused;
         Time.timeScale = 0;
+        
+        _playerInputState.DisableInput();
     }
 
     public void Unpause()
     {
         _gameStateType = GameStateType.Running;
-        Time.timeScale = 1;
+        
+        _playerInputState.EnableInput();
+
+        StartCoroutine(UnpauseDelayed());
     }
 
     public void KillFlower(PlayerFlowerType playerFlowerType)
@@ -85,6 +92,13 @@ public class GameState : MonoBehaviour
         _spawnedEnemyCount--;
     }
 
+    private IEnumerator UnpauseDelayed()
+    {
+        yield return new WaitForSecondsRealtime(.4f);
+        
+        Time.timeScale = 1;
+    }
+    
     private void Awake()
     {
         ResetState();

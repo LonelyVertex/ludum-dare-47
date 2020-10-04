@@ -8,5 +8,6 @@ public class DataModelsInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<PlayerFlowerDataModel>().FromComponentInNewPrefab(_playerFlowerDataModel).AsSingle();
+        Container.BindInterfacesAndSelfTo<PlayerInputState>().AsSingle();
     }
 }

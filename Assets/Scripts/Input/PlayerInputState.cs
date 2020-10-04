@@ -48,13 +48,23 @@ public class PlayerInputState : IInitializable, IDisposable
         movement = Vector2.zero;
     }
 
-    public void Initialize()
+    public void EnableInput()
     {
         _playerInputActions.Enable();
     }
 
-    public void Dispose()
+    public void DisableInput()
     {
         _playerInputActions.Disable();
+    }
+
+    public void Initialize()
+    {
+        // _playerInputActions.Enable();
+    }
+
+    public void Dispose()
+    {
+        // _playerInputActions.Disable();
     }
 }
