@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 5316707620932062446}
   vision: {fileID: 1569032526}
-  range: 1
+  range: 0.8
   timer: 2
   damage: 10
 --- !u!114 &-8265830786349434223
