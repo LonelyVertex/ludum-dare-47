@@ -38,7 +38,7 @@ public class ProjectileEngine : MonoBehaviour
         _currentLifeSpan -= Time.deltaTime;
         if (_currentLifeSpan <= 0)
         {
-            killProjectile?.Invoke(this, null, Vector3.zero, Quaternion.identity, Vector3.zero);
+            killProjectile?.Invoke(this, null, transform.position, transform.rotation, Vector3.zero);
         }
     }
 
