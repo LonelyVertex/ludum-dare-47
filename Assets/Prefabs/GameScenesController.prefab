@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuScene: Menu
-  aphidScene: SampleArena
-  spiderScene: SpiderArena
-  beetleScene: SampleArena
+  scenes:
+  - {fileID: 11400000, guid: c08bae759b245a6469efe193c9e7df04, type: 2}
+  - {fileID: 11400000, guid: 9a40f517dd31b2e438faeb25d7e1a1e9, type: 2}
+  - {fileID: 11400000, guid: c7b0ad9f35c94304096209da299c5f73, type: 2}

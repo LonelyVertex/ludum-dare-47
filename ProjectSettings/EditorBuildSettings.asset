@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpiderArena.unity
     guid: 52bdea3cd1d9046d69545b172dc7f888
+  - enabled: 1
+    path: Assets/Scenes/AphidArena.unity
+    guid: 73c4775ad9fc8d94e928e5da2a538805
   m_configObjects: {}

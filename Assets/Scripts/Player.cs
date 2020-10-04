@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         if (_gameState.bossSpawned && _gameState.spawnedEnemyCount <= 0)
         {
             _gameState.Pause();
-            _gameScenesController.ToGame(_gameState.level + 1);
+            _uiPanelController.ShowArenaCompletedUI();
         }
     }
 

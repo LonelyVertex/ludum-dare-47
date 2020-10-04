@@ -13,9 +13,11 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] private UIPanel _playerSelectionPanel = default;
     [SerializeField] private UIPanel _inGameUIPanel = default;
     [SerializeField] private UIPanel _gameOverUIPanel = default;
+    [SerializeField] private UIPanel _arenaFinishedUIPanel = default;
 
     [Space]
     [SerializeField] private PlayerSelectionController _playerSelectionController = default;
+    [SerializeField] private NextLevelController _nextLevelController = default;
     
     private UIPanel _currentDisplayedPanel;
 
@@ -26,6 +28,7 @@ public class UIPanelController : MonoBehaviour
         _playerSelectionPanel.gameObject.SetActive(false);
         _inGameUIPanel.gameObject.SetActive(false);
         _gameOverUIPanel.gameObject.SetActive(false);
+        _arenaFinishedUIPanel.gameObject.SetActive(false);
     }
 
     public void ShowInGameUI(bool instant = false)
@@ -59,6 +62,8 @@ public class UIPanelController : MonoBehaviour
             return;
         }
         
+        _playerSelectionController.Show();
+        
         if (instant)
         {
             if (_currentDisplayedPanel != null)
@@ -72,8 +77,6 @@ public class UIPanelController : MonoBehaviour
             
             return;
         }
-        
-        _playerSelectionController.Show();
 
         StartCoroutine(TransitionPanels(_playerSelectionPanel, _currentDisplayedPanel));
     }
@@ -84,6 +87,8 @@ public class UIPanelController : MonoBehaviour
         {
             return;
         }
+        
+        _nextLevelController.Show();
 
         if (instant)
         {
@@ -100,6 +105,30 @@ public class UIPanelController : MonoBehaviour
         }
 
         StartCoroutine(TransitionPanels(_gameOverUIPanel, _currentDisplayedPanel));
+    }
+
+    public void ShowArenaCompletedUI(bool instant = false)
+    {
+        if (!_eventSystem.enabled)
+        {
+            return;
+        }
+
+        if (instant)
+        {
+            if (_currentDisplayedPanel != null)
+            {
+                _currentDisplayedPanel.gameObject.SetActive(false);
+                _currentDisplayedPanel.canvasGroup.alpha = 0.0f;
+            }
+            
+            _arenaFinishedUIPanel.gameObject.SetActive(true);
+            _arenaFinishedUIPanel.canvasGroup.alpha = 1.0f;
+            
+            return;
+        }
+
+        StartCoroutine(TransitionPanels(_arenaFinishedUIPanel, _currentDisplayedPanel));
     }
 
     private IEnumerator TransitionPanels(UIPanel panelIn, UIPanel panelOut)

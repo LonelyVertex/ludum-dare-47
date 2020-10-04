@@ -10,10 +10,7 @@ public class GameScenesController : MonoBehaviour
     [Space]
     [Scene] public string menuScene;
 
-    [Scene] public string aphidScene;
-    [Scene] public string spiderScene;
-    [Scene] public string beetleScene;
-    
+    public SceneSO[] scenes;
     
     public void ToMenu()
     {
@@ -22,23 +19,13 @@ public class GameScenesController : MonoBehaviour
 
     public void ToGame(int level)
     {
-        string scene = null;
-        switch (level % 3)
-        {
-            case 0:
-                scene = aphidScene;
-                break;
-            case 1:
-                scene = spiderScene;
-                break;
-            case 2:
-                scene = beetleScene;
-                break;
-        }
+        var scene = GetScene(level);        
+        TransitionToScene(scene.scenePath);
+    }
 
-        Debug.Log(scene);
-        
-        TransitionToScene(scene);
+    public SceneSO GetScene(int level)
+    {
+        return scenes[level % scenes.Length];
     }
     
     public void TransitionToScene(string scene)
