@@ -11,11 +11,6 @@
     private const float BasePoolTimer = 5;
     private const float PoolCooldownLimit = 0.4f;
     
-    public override int SpawnCount(int level)
-    {
-        return 1;
-    }
-    
     public override void SetLevel(int level)
     {
         health.SetMaxHealth(Scaler.ScaleHealth(BaseHealth, level));

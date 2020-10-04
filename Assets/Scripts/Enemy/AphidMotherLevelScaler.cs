@@ -14,11 +14,6 @@
 
     public int Level => _level;
 
-    public override int SpawnCount(int level)
-    {
-        return 1;
-    }
-
     public override void SetLevel(int level)
     {
         _level = level;
