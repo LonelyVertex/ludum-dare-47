@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navigation: {fileID: 2992916451172373539}
   fov: 360
-  viewDistance: 6.5
+  viewDistance: 20
 --- !u!114 &1569032527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6511775593311933512, guid: e995549bbc3434d479dfc4170e82a8ec,
     type: 3}
   timer: 4
-  damage: 20
+  damage: 10
 --- !u!114 &-1627141255568051718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   vision: {fileID: 1569032526}
   wayPoints: {fileID: 1569032527}
   health: {fileID: 5316707620932062446}
-  chaseStoppingDistance: 6
+  chaseStoppingDistance: 10
 --- !u!1 &5339476377962786076
 GameObject:
   m_ObjectHideFlags: 0

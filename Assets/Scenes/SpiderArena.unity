@@ -192,11 +192,15 @@ MonoBehaviour:
         enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 1
+        spawnCount: 0
+        scaleSpawn: 0
       - spawnPoint: {fileID: 178715789}
         wayPointCollection: {fileID: 733250265}
         enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 1
+        spawnCount: 0
+        scaleSpawn: 0
     bossWave: 0
   wave2:
     drawGizmos: 1
@@ -208,11 +212,15 @@ MonoBehaviour:
         enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 1
+        spawnCount: 0
+        scaleSpawn: 0
       - spawnPoint: {fileID: 1084616862}
         wayPointCollection: {fileID: 625550258}
         enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 1
+        spawnCount: 0
+        scaleSpawn: 0
     bossWave: 0
   bossWave:
     drawGizmos: 1
@@ -224,7 +232,9 @@ MonoBehaviour:
         enemyPrefab: {fileID: 2992916451172373536, guid: f33eeca3f0e8747f1bcb4018daf5fdb0,
           type: 3}
         spawnDelay: 0
-    bossWave: 0
+        spawnCount: 0
+        scaleSpawn: 0
+    bossWave: 1
 --- !u!4 &139711774
 Transform:
   m_ObjectHideFlags: 0

@@ -36,7 +36,18 @@ public class ProjectileEngineManager : MonoBehaviour
                 break;
             case PlayerFlowerType.Electric:
                 tmp = GameObject.Instantiate(electricExplosion, hitPosition, rotation);
-                tmp.GetComponent<ElectricSeedExplosion>().FirstTarget = hitGameObject;
+                ElectricSeedExplosion electricSeedExplosion = tmp.GetComponent<ElectricSeedExplosion>();
+                if(hitGameObject!=null)
+                {
+                electricSeedExplosion.FirstTarget = hitGameObject;
+                }
+                else
+                {
+                    // electricSeedExplosion.ExplosionLocation = hitPosition;
+           
+                   // Find target nearest to the projectile end 
+                   //electricSeedExplosion.FirstTarget = electricExplosion.getRandomEnemy();
+                }
                 break;
             case PlayerFlowerType.Piercing:
                 tmp = GameObject.Instantiate(PiercingExplosion, hitPosition, rotation);

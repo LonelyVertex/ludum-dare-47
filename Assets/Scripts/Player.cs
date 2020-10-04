@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         flowerGraphicSwapper.SwapGraphics(playerFlowerSo.playerFlowerType);
         
         health.SetMaxHealth(playerFlowerSo.maxHealth);
-        
+        health.setRessurectinvicinvible();
         _uiPanelController.ShowInGameUI();
         _gameState.Unpause();
     }

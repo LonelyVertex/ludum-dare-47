@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456fe9b79af4fc74b80030549a091726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxsize: 5
-  damageTickRate: 0.3
-  growthSpeed: 3
-  damagePerTick: 50
-  fadeOutSpeed: 1
+  maxsize: 8
+  growthSpeed: 5
+  damage: 25
+  fadeOutSpeed: 2
 --- !u!212 &2766795425858884159
 SpriteRenderer:
   m_ObjectHideFlags: 0

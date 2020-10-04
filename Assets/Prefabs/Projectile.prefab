@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 4287844470610746151}
-  projectileSpeed: 10
-  lifespan: 5
+  projectileSpeed: 15
+  lifespan: 1
   playerFlowerType: 0
   _flowerGraphicSwapper: {fileID: 7486430700686130116}
 --- !u!50 &4287844470610746151

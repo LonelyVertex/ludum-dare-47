@@ -255,7 +255,7 @@ MonoBehaviour:
     bossWave: 1
   wave2:
     drawGizmos: 1
-    spawnTime: 3
+    spawnTime: 1
     spawnPoints:
       array:
       - spawnPoint: {fileID: 178715789}
@@ -286,12 +286,12 @@ MonoBehaviour:
       array:
       - spawnPoint: {fileID: 1450295716}
         wayPointCollection: {fileID: 1066120709}
-        enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
+        enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 2
       - spawnPoint: {fileID: 1084616862}
         wayPointCollection: {fileID: 1980744966}
-        enemyPrefab: {fileID: 2992916451172373536, guid: 482f5009a4c09453596754978e4e0dc2,
+        enemyPrefab: {fileID: 2992916451172373536, guid: a87c13619b8274ea09f395d25e584e81,
           type: 3}
         spawnDelay: 2
     bossWave: 0
@@ -526,12 +526,12 @@ PrefabInstance:
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.09
+      value: -8.42
       objectReference: {fileID: 0}
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.02
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 7740528653826372327, guid: 4392af5ca2024774e866204d497a1942,
         type: 3}
