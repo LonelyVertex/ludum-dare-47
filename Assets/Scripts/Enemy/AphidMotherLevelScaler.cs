@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class AphidMotherLevelScaler : EnemyLevelScaler
+﻿public class AphidMotherLevelScaler : EnemyLevelScaler
 {
     public Health health;
     public EnemyMeleeAttack attack;
@@ -8,8 +6,10 @@ public class AphidMotherLevelScaler : EnemyLevelScaler
 
     private const int BaseHealth = 150;
     private const float BaseAttackTimer = 2;
-    private const float BaseAphidSpawnCooldown = 5;
-
+    private const float AttackCooldownLimit = 0.6f;
+    private const float BaseAphidSpawnTimer = 5;
+    private const float SpawnCooldownLimit = 0.4f;
+    
     private int _level;
 
     public int Level => _level;
@@ -23,23 +23,8 @@ public class AphidMotherLevelScaler : EnemyLevelScaler
     {
         _level = level;
 
-        health.SetMaxHealth(ScaleHealth(level));
-        attack.timer = ScaleAttackTimer(level);
-        aphidMother.spawnCooldown = ScaleAphidSpawnCooldown(level);
-    }
-
-    private static int ScaleHealth(int level)
-    {
-        return Mathf.RoundToInt(BaseHealth + Mathf.Log(10 * (float) level));
-    }
-
-    private static float ScaleAttackTimer(int level)
-    {
-        return BaseAttackTimer - (-1 / ((float) level / 2) + 1);
-    }
-
-    private static float ScaleAphidSpawnCooldown(int level)
-    {
-        return BaseAphidSpawnCooldown - 2 * (-1 / ((float) level / 2) + 1);
+        health.SetMaxHealth(Scaler.ScaleHealth(BaseHealth, level));
+        attack.timer = Scaler.ScaleTimer(BaseAttackTimer, AttackCooldownLimit, level);
+        aphidMother.spawnCooldown = Scaler.ScaleTimer(BaseAphidSpawnTimer, SpawnCooldownLimit, level);
     }
 }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class AphidLevelScaler : EnemyLevelScaler
+﻿public class AphidLevelScaler : EnemyLevelScaler
 {
     public Health health;
     public EnemyMeleeAttack attack;
@@ -8,25 +6,16 @@ public class AphidLevelScaler : EnemyLevelScaler
     private const int BaseSpawnCount = 3;
     private const int BaseHealth = 50;
     private const float BaseAttackTimer = 2;
+    private const float CooldownLimit = 0.6f;
 
     public override int SpawnCount(int level)
     {
-        return Mathf.RoundToInt(BaseSpawnCount + Mathf.Log(level));
+        return Scaler.ScaleCount(BaseSpawnCount, level);
     }
 
     public override void SetLevel(int level)
     {
-        health.SetMaxHealth(ScaleHealth(level));
-        attack.timer = ScaleAttackTimer(level);
-    }
-
-    private static int ScaleHealth(int level)
-    {
-        return Mathf.RoundToInt(BaseHealth + Mathf.Log(10 * (float) level));
-    }
-
-    private static float ScaleAttackTimer(int level)
-    {
-        return BaseAttackTimer - (-1 / ((float) level / 2) + 1);
+        health.SetMaxHealth(Scaler.ScaleHealth(BaseHealth, level));
+        attack.timer = Scaler.ScaleTimer(BaseAttackTimer, CooldownLimit, level);
     }
 }

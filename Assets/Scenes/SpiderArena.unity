@@ -270,7 +270,7 @@ MonoBehaviour:
       array:
       - spawnPoint: {fileID: 178715789}
         wayPointCollection: {fileID: 733250265}
-        enemyPrefab: {fileID: 4366638580511262666, guid: 1448d927e1fbc409b837e4f802d9ceb8,
+        enemyPrefab: {fileID: 2992916451172373536, guid: f33eeca3f0e8747f1bcb4018daf5fdb0,
           type: 3}
         spawnDelay: 0
 --- !u!4 &139711774

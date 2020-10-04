@@ -18,10 +18,10 @@ GameObject:
   - component: {fileID: 1569032527}
   - component: {fileID: 5316707620932062446}
   - component: {fileID: -1809229236275107157}
-  - component: {fileID: -1627141255568051718}
-  - component: {fileID: 1213982535516451508}
+  - component: {fileID: 6894895591926366824}
+  - component: {fileID: -776192026475193159}
   m_Layer: 10
-  m_Name: Spider
+  m_Name: SpiderQueen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 2992916451172373536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov: 360
-  viewDistance: 6.5
+  viewDistance: 10
 --- !u!114 &1569032527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +220,9 @@ MonoBehaviour:
   vision: {fileID: 1569032526}
   projectilePrefab: {fileID: 6511775593311933512, guid: e995549bbc3434d479dfc4170e82a8ec,
     type: 3}
-  timer: 4
-  damage: 20
---- !u!114 &-1627141255568051718
+  timer: 3.5
+  damage: 30
+--- !u!114 &6894895591926366824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,12 +231,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2992916451172373536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2ec7d9ba02d46b396f5ec33a5dd7b7, type: 3}
+  m_Script: {fileID: 11500000, guid: c3c6bc535d3c841ddaf81e8246ed4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5316707620932062446}
   attack: {fileID: -1809229236275107157}
---- !u!114 &1213982535516451508
+  spiderQueen: {fileID: -776192026475193159}
+--- !u!114 &-776192026475193159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,11 +246,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2992916451172373536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4ec895c07064ed88ca4eb0d40ef841, type: 3}
+  m_Script: {fileID: 11500000, guid: a5a807dd2e3384771aab38c9f939c806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   navigation: {fileID: 2992916451172373539}
   vision: {fileID: 1569032526}
   wayPoints: {fileID: 1569032527}
   health: {fileID: 5316707620932062446}
-  chaseStoppingDistance: 6
+  chaseStoppingDistance: 9
+  poolCooldown: 5
+  poolPrefab: {fileID: 1786495911344217428, guid: f9336b2f50e5f40db9c802f9f875d382,
+    type: 3}
