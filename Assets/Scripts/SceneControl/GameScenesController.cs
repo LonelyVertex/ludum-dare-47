@@ -9,16 +9,34 @@ public class GameScenesController : MonoBehaviour
 
     [Space]
     [Scene] public string menuScene;
-    [Scene] public string gameScene;
 
+    [Scene] public string aphidScene;
+    [Scene] public string spiderScene;
+    [Scene] public string beetleScene;
+    
+    
     public void ToMenu()
     {
         TransitionToScene(menuScene);
     }
 
-    public void ToGame()
+    public void ToGame(int level)
     {
-        TransitionToScene(gameScene);
+        string scene = null;
+        switch (level % 3)
+        {
+            case 1:
+                scene = aphidScene;
+                break;
+            case 2:
+                scene = spiderScene;
+                break;
+            case 3:
+                scene = beetleScene;
+                break;
+        }
+        
+        TransitionToScene(scene);
     }
     
     public void TransitionToScene(string scene)

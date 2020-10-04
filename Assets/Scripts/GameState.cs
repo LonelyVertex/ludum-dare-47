@@ -16,12 +16,16 @@ public class GameState : MonoBehaviour
 
     public int spawnedEnemyCount => _spawnedEnemyCount;
     public int spawnedWaveCount => _spawnedWaveCount;
+    public bool bossSpawned => _bossSpawned;
+
+    public int level;
     
     private ArenaController _arenaController;
     private GameStateType _gameStateType;
 
     private int _spawnedWaveCount;
     private int _spawnedEnemyCount;
+    private bool _bossSpawned;
     
     public void ResetState()
     {
@@ -29,6 +33,7 @@ public class GameState : MonoBehaviour
         availableFlowers = _playerFlowerDataModel.playerFlowers;
 
         _arenaController = null;
+        level = 0;
     }
 
     public void InitArena()
@@ -37,15 +42,19 @@ public class GameState : MonoBehaviour
 
         _arenaController.waveSpawnedEvent += HandleWaveSpawned;
         _arenaController.enemySpawnedEvent += HandleEnemySpawned;
+        _arenaController.bossWaveSpawned += HandleBossWaveSpawned;
 
         _spawnedEnemyCount = 0;
         _spawnedWaveCount = 0;
+        _bossSpawned = false;
+        level++;
     }
 
     public void CloseArena()
     {
         _arenaController.waveSpawnedEvent -= HandleWaveSpawned;
         _arenaController.enemySpawnedEvent -= HandleEnemySpawned;
+        _arenaController.bossWaveSpawned -= HandleBossWaveSpawned;
     }
 
     public void Pause()
@@ -79,6 +88,11 @@ public class GameState : MonoBehaviour
     private void Awake()
     {
         ResetState();
+    }
+    
+    private void HandleBossWaveSpawned()
+    {
+        _bossSpawned = true;
     }
     
     private void HandleWaveSpawned()

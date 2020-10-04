@@ -14,6 +14,7 @@ public class ArenaController : MonoBehaviour
         public bool drawGizmos;
         public float spawnTime;
         [Reorderable] public SpawnPointList spawnPoints;
+        public bool bossWave;
     }
 
     [Serializable]
@@ -30,15 +31,16 @@ public class ArenaController : MonoBehaviour
     {
     }
 
-    public int level;
     [Space] public Wave wave1;
     [Space] public Wave wave2;
     [Space] public Wave bossWave;
 
     public event System.Action waveSpawnedEvent;
     public event System.Action enemySpawnedEvent;
+    public event System.Action bossWaveSpawned;
     
     [Inject] DiContainer _container;
+    [Inject] private GameState _gameState;
 
     #region Gizmos
 
@@ -94,6 +96,11 @@ public class ArenaController : MonoBehaviour
         Debug.Log("Spawn wave");
         
         waveSpawnedEvent?.Invoke();
+
+        if (wave.bossWave)
+        {
+            bossWaveSpawned?.Invoke();
+        }
         
         foreach (var spawnPoint in wave.spawnPoints)
         {
@@ -104,7 +111,7 @@ public class ArenaController : MonoBehaviour
     IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint)
     {
         var spawnDelay = new WaitForSeconds(spawnPoint.spawnDelay);
-        var spawnCount = spawnPoint.enemyPrefab.GetComponent<EnemyLevelScaler>().SpawnCount(level);
+        var spawnCount = spawnPoint.enemyPrefab.GetComponent<EnemyLevelScaler>().SpawnCount(_gameState.level);
         
         for (var i = 0; i < spawnCount; i++)
         {
@@ -117,7 +124,7 @@ public class ArenaController : MonoBehaviour
     {
         var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, Quaternion.identity, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
-        enemy.GetComponent<EnemyLevelScaler>().SetLevel(level);
+        enemy.GetComponent<EnemyLevelScaler>().SetLevel(_gameState.level);
         
         enemySpawnedEvent?.Invoke();
     }

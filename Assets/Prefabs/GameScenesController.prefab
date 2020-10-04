@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuScene: Menu
-  gameScene: SampleArena
+  aphidScene: SampleArena
+  spiderScene: SpiderArena
+  beetleScene: SampleArena
