@@ -83,8 +83,6 @@ public class SimpleEnemyController : MonoBehaviour
     private void OnHealthDepleted()
     {
         if (_isDying) return;
-        
-        _gameState.EnemyDied();
 
         _isDying = true;
         _spriteColorTimer = 0;
@@ -106,6 +104,7 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void DestroyLater()
     {
+        _gameState.EnemyDied();
         Destroy(gameObject);
     }
 }
