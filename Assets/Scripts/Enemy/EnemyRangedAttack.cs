@@ -3,6 +3,7 @@ using Zenject;
 
 public class EnemyRangedAttack : MonoBehaviour
 {
+    public Health health;
     public EnemyVision vision;
     public GameObject projectilePrefab;
     public float timer;
@@ -15,6 +16,8 @@ public class EnemyRangedAttack : MonoBehaviour
     
     private void Update()
     {
+        if (!health.IsAlive) return;
+        
         if (vision.CanSeePlayer && CanAttack)
         {
             AttackPlayer();

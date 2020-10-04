@@ -1,10 +1,10 @@
-﻿using System;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using Zenject;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
+    public Health health;
     public EnemyVision vision;
 
     public float range;
@@ -25,6 +25,8 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     void Update()
     {
+        if (!health.IsAlive) return;
+        
         if (vision.CanSeePlayer && InRange && CanAttack)
         {
             AttackPlayer();

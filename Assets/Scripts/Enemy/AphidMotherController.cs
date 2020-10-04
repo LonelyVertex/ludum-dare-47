@@ -24,6 +24,8 @@ public class AphidMotherController : SimpleEnemyController
     protected override void Update()
     {
         base.Update();
+        
+        if (!health.IsAlive) return;
 
         if (_spawnTimer <= 0)
         {

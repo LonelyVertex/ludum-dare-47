@@ -4,22 +4,34 @@ using Zenject;
 
 public class SimpleEnemyController : MonoBehaviour
 {
+    private const float SpriteColorDuration = 0.2f;
+
     [Inject] protected Player Player;
     [Inject] private GameState _gameState;
 
-    [Header("Simple Enemy Controller ")] public EnemyNavigation navigation;
+    [Header("Simple Enemy Controller ")] public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    public EnemyNavigation navigation;
     public EnemyVision vision;
     public EnemyWayPoints wayPoints;
     public Health health;
-
     public float chaseStoppingDistance;
 
     protected bool ChasingPlayer;
+    private float _spriteColorTimer;
+    private Color _defaultColor;
+    private Color _tintColor;
 
     protected virtual void Start()
     {
-        health.healthDepletedEvent += OnHealthDepleted;
+        health.HealthDepletedEvent += OnHealthDepleted;
+        health.DamageTaken += OnDamageTaken;
+
+        _spriteColorTimer = SpriteColorDuration;
+        _defaultColor = Color.white;
+        _tintColor = Color.red;
         
+
         if (!ChasingPlayer)
         {
             navigation.SetTarget(wayPoints.CurrentWayPoint);
@@ -28,11 +40,14 @@ public class SimpleEnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
-        health.healthDepletedEvent -= OnHealthDepleted;
+        health.HealthDepletedEvent -= OnHealthDepleted;
+        health.DamageTaken -= OnDamageTaken;
     }
 
     protected virtual void Update()
     {
+        UpdateSpriteRenderer();
+
         if (ChasingPlayer) return;
 
         if (wayPoints.HasReachedWayPoint)
@@ -44,6 +59,13 @@ public class SimpleEnemyController : MonoBehaviour
         {
             ChasePlayer();
         }
+    }
+
+    private void UpdateSpriteRenderer()
+    {
+        _spriteColorTimer = Mathf.Min(SpriteColorDuration, _spriteColorTimer + Time.deltaTime);
+        spriteRenderer.color = Color.Lerp(_tintColor, _defaultColor, _spriteColorTimer / SpriteColorDuration);
+
     }
 
     public void ChasePlayer()
@@ -60,8 +82,23 @@ public class SimpleEnemyController : MonoBehaviour
     private void OnHealthDepleted()
     {
         _gameState.EnemyDied();
+
+        _spriteColorTimer = 0;
+        _defaultColor = Color.black;
+        _tintColor = Color.white;
         
-        // TODO some fancy effects of dying
+        animator.SetTrigger("Death");
+        
+        Invoke(nameof(DestroyLater), SpriteColorDuration + 0.2f);
+    }
+
+    private void OnDamageTaken()
+    {
+        _spriteColorTimer = 0;
+    }
+
+    private void DestroyLater()
+    {
         Destroy(gameObject);
     }
 }

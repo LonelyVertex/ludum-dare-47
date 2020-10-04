@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        health.healthDepletedEvent += PlayerHealthHealthDepletedEvent;
+        health.HealthDepletedEvent += PlayerHealthHealthDepletedEvent;
         
         _gameState.InitArena();
         _gameState.Pause();

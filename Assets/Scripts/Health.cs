@@ -2,13 +2,14 @@
 
 public class Health : MonoBehaviour
 {
-
-    public event System.Action healthDepletedEvent;
+    public event System.Action DamageTaken;
+    public event System.Action HealthDepletedEvent;
 
     private int _currentHealth;
     private int _maxHealth;
     
     public bool HasFullHealth => _currentHealth == _maxHealth;
+    public bool IsAlive => _currentHealth > 0;
 
     public void SetMaxHealth(int maxHealth)
     {
@@ -18,12 +19,13 @@ public class Health : MonoBehaviour
     public void DealDamage(int amount)
     {
         Debug.Log(gameObject.name + " got damage " + amount);
+        DamageTaken?.Invoke();
         
         _currentHealth -= amount;
 
         if (_currentHealth <= 0)
         {
-            healthDepletedEvent?.Invoke();
+            HealthDepletedEvent?.Invoke();
         }
     }
 

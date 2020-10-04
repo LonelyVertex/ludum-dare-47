@@ -20,7 +20,8 @@ public class ElectricSeedExplosion : MonoBehaviour
     {
         var targets = Physics2D.OverlapCircleAll(target.transform.position, boltRange, _enemyMask)
             .Where(t => t.gameObject != target).ToList();
-        return targets[Random.Range(0, targets.Count)].gameObject;
+
+        return targets.Count > 0 ? targets[Random.Range(0, targets.Count)].gameObject : null;
     }
 
     private void StrikeTarget(GameObject target, int jumps)

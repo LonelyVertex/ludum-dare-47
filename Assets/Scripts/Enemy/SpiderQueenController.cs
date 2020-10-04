@@ -19,6 +19,8 @@ public class SpiderQueenController : SimpleEnemyController
     protected override void Update()
     {
         base.Update();
+        
+        if (!health.IsAlive) return;
 
         if (vision.CanSeePlayer && _poolTimer <= 0)
         {
@@ -32,8 +34,6 @@ public class SpiderQueenController : SimpleEnemyController
 
     private void SpawnPool()
     {
-        // spawning pool
-        Debug.Log("Spawn pool now");
         _poolTimer = poolCooldown;
         
         var position = Player.rigidbody2D.position + Player.rigidbody2D.velocity.normalized * 2;
