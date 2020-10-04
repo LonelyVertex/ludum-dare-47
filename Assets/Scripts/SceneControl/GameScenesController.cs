@@ -26,6 +26,8 @@ public class GameScenesController : MonoBehaviour
 
     public SceneSO GetScene(int level)
     {
+        
+        
         return scenes[(level - 1) % scenes.Length];
     }
     

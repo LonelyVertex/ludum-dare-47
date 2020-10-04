@@ -31,6 +31,7 @@ public class GameState : MonoBehaviour
 
         _arenaController = null;
         level = 0;
+        score = 0;
     }
 
     public void InitArena()
@@ -45,7 +46,6 @@ public class GameState : MonoBehaviour
         _spawnedWaveCount = 0;
         _bossSpawned = false;
         level++;
-        score = 0;
     }
 
     public void CloseArena()
@@ -93,7 +93,7 @@ public class GameState : MonoBehaviour
         Time.timeScale = 1;
     }
     
-    private void Awake()
+    private void Start()
     {
         ResetState();
     }
