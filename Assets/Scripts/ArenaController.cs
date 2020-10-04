@@ -41,12 +41,13 @@ public class ArenaController : MonoBehaviour
     public event System.Action waveSpawnedEvent;
     public event System.Action enemySpawnedEvent;
     public event System.Action bossWaveSpawned;
-    
+
     [Inject] DiContainer _container;
     [Inject] private GameState _gameState;
 
     #region Gizmos
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         DrawWaveGizmos(wave1);
@@ -57,7 +58,7 @@ public class ArenaController : MonoBehaviour
     void DrawWaveGizmos(Wave wave)
     {
         if (!wave.drawGizmos) return;
-        
+
         foreach (var spawnPoint in wave.spawnPoints)
         {
             DrawSpawnPointGizmos(spawnPoint);
@@ -81,7 +82,8 @@ public class ArenaController : MonoBehaviour
 
         spawnPoint.wayPointCollection.DrawCollectionGizmos();
     }
-    
+#endif
+
     #endregion
 
     void Start()
@@ -97,14 +99,14 @@ public class ArenaController : MonoBehaviour
         yield return new WaitForSeconds(wave.spawnTime);
 
         Debug.Log("Spawn wave");
-        
+
         waveSpawnedEvent?.Invoke();
 
         if (wave.bossWave)
         {
             bossWaveSpawned?.Invoke();
         }
-        
+
         foreach (var spawnPoint in wave.spawnPoints)
         {
             StartCoroutine(SpawnSpawnPoint(spawnPoint));
@@ -114,10 +116,12 @@ public class ArenaController : MonoBehaviour
     IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint)
     {
         yield return new WaitForSeconds(spawnPoint.spawnPointDelay);
-        
+
         var spawnDelay = new WaitForSeconds(spawnPoint.spawnDelay);
-        var spawnCount = spawnPoint.scaleSpawn ? Scaler.ScaleCount(spawnPoint.spawnCount, _gameState.level) : spawnPoint.spawnCount;
-        
+        var spawnCount = spawnPoint.scaleSpawn
+            ? Scaler.ScaleCount(spawnPoint.spawnCount, _gameState.level)
+            : spawnPoint.spawnCount;
+
         for (var i = 0; i < spawnCount; i++)
         {
             SpawnEnemy(spawnPoint);
@@ -127,10 +131,11 @@ public class ArenaController : MonoBehaviour
 
     void SpawnEnemy(SpawnPoint spawnPoint)
     {
-        var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position, Quaternion.identity, null);
+        var enemy = _container.InstantiatePrefab(spawnPoint.enemyPrefab, spawnPoint.spawnPoint.position,
+            Quaternion.identity, null);
         enemy.GetComponent<EnemyWayPoints>().wayPointCollection = spawnPoint.wayPointCollection;
         enemy.GetComponent<EnemyLevelScaler>().SetLevel(_gameState.level);
-        
+
         enemySpawnedEvent?.Invoke();
     }
 }

@@ -17,16 +17,18 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool InRange => Vector3.Distance(_player.transform.position, transform.position) <= range;
     private bool CanAttack => _currentTimer <= 0;
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Handles.color = Color.red;
         Handles.DrawWireDisc(transform.position, transform.forward, range);
     }
+#endif
 
     void Update()
     {
         if (!health.IsAlive) return;
-        
+
         _currentTimer -= Time.deltaTime;
 
         if (InRange && CanAttack)
