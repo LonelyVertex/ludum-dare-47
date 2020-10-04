@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3587623401218864986}
   - component: {fileID: 3587623401218864991}
   - component: {fileID: 2541325119955993758}
+  - component: {fileID: 431976448112414044}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 3587623401218864986}
   - {fileID: 2541325119955993758}
+  - {fileID: 431976448112414044}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -116,4 +118,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerFlowerDataModel: {fileID: 6612187192413945694, guid: f107d8a6d783c2544ba38414f2869e3a,
+    type: 3}
+--- !u!114 &431976448112414044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587623401218864987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efabec4754922f49b116bf343b6ef33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeInOutPrefab: {fileID: 548244671029653091, guid: 784edc1b627ccbf4888e4918018a500d,
+    type: 3}
+  _gameScenesControllerPrefab: {fileID: 2793042025683278838, guid: 7bc827e1639390740ba355c4b4539dc4,
     type: 3}
