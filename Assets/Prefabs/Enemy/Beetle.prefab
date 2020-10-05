@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 2992916451172373536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_Children:
   - {fileID: 7310447006579743297}
   m_Father: {fileID: 0}
@@ -156,6 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00a076312b8b6b4b9539c78022b2f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Invincible: 0
+  invincibleTime: 0
+  ressurectIvincibleTimer: 0
 --- !u!114 &3855185705561143385
 MonoBehaviour:
   m_ObjectHideFlags: 0
