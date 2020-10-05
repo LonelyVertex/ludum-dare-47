@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningPrefab: {fileID: 2209331886224041472, guid: e88177481c29543d795a077c29350e40,
     type: 3}
-  boltRange: 3
+  boltRange: 5
   boltDamage: 25
   boltMaxJumps: 10

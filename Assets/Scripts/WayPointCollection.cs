@@ -20,6 +20,7 @@ public class WayPointCollection : MonoBehaviour
     public Mode mode;
     [Reorderable] public TransformList wayPoints;
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (Selection.activeGameObject != gameObject) return;
@@ -44,6 +45,8 @@ public class WayPointCollection : MonoBehaviour
             }
         }
     }
+
+#endif
 
     public Vector3 GetPosition(int i)
     {

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Textures/vector/mouse.afdesign.meta
 guid: a19fe7c371915ea4093229ad3220a779
+=======
+guid: f63deb64075ea454dac950f6b49ab2dc
+>>>>>>> 6941b43286ec2dddb59c1bdbce4d6249e54a5457:Assets/Textures/vector/fx.afdesign.meta
+=======
+guid: 22d4d60942fdc422f906f50f18223a08
+>>>>>>> 6941b43286ec2dddb59c1bdbce4d6249e54a5457
 DefaultImporter:
   externalObjects: {}
   userData: 

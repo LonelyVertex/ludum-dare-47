@@ -33,6 +33,7 @@ public class EnemyVision : MonoBehaviour
         }
     }
 
+    #if UNITY_EDITOR
     void OnDrawGizmos()
     {
         // Vision
@@ -47,4 +48,5 @@ public class EnemyVision : MonoBehaviour
             Handles.DrawLine(transform.position, _player.transform.position);
         }
     }
+    #endif
 }
