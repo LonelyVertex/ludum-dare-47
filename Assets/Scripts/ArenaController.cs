@@ -44,6 +44,7 @@ public class ArenaController : MonoBehaviour
 
     [Inject] DiContainer _container;
     [Inject] private GameState _gameState;
+    private int _bossSpawnPoints;
 
     #region Gizmos
 
@@ -102,19 +103,16 @@ public class ArenaController : MonoBehaviour
 
         waveSpawnedEvent?.Invoke();
 
-        if (wave.bossWave)
-        {
-            bossWaveSpawned?.Invoke();
-        }
-
         foreach (var spawnPoint in wave.spawnPoints)
         {
-            StartCoroutine(SpawnSpawnPoint(spawnPoint));
+            StartCoroutine(SpawnSpawnPoint(spawnPoint, wave.bossWave));
         }
     }
 
-    IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint)
+    IEnumerator SpawnSpawnPoint(SpawnPoint spawnPoint, bool bossWave)
     {
+        if (bossWave) AddBossSpawnPoint();
+        
         yield return new WaitForSeconds(spawnPoint.spawnPointDelay);
 
         var spawnDelay = new WaitForSeconds(spawnPoint.spawnDelay);
@@ -127,6 +125,8 @@ public class ArenaController : MonoBehaviour
             SpawnEnemy(spawnPoint);
             yield return spawnDelay;
         }
+        
+        if (bossWave) RemoveBossSpawnPoint();
     }
 
     void SpawnEnemy(SpawnPoint spawnPoint)
@@ -137,5 +137,19 @@ public class ArenaController : MonoBehaviour
         enemy.GetComponent<EnemyLevelScaler>().SetLevel(_gameState.level);
 
         enemySpawnedEvent?.Invoke();
+    }
+
+    void AddBossSpawnPoint()
+    {
+        _bossSpawnPoints++;
+    }
+
+    void RemoveBossSpawnPoint()
+    {
+        _bossSpawnPoints--;
+        if (_bossSpawnPoints <= 0)
+        {
+            bossWaveSpawned?.Invoke();
+        }
     }
 }
