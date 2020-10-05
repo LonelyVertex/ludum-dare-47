@@ -18,7 +18,7 @@ public class NextLevelController : MonoBehaviour
     {
         _playLevelButton.onClick.AddListener(() =>
         {
-            _gameScenesController.ToGame(_gameState.level);
+            _gameScenesController.ToGame(_gameState.level + 1);
         });
     }
 
